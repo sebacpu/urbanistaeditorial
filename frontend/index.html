@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urbanista Editorial — Publica tu libro y que la ciudad lo lea</title>
+  <meta name="description" content="Urbanista Editorial es un sello independiente de narrativa urbana, ensayo y cultura de calle. Convertimos manuscritos en libros, de la primera lectura a la imprenta. Santiago, Chile.">
+  <meta property="og:title" content="Urbanista Editorial">
+  <meta property="og:description" content="Publica tu libro y que la ciudad lo lea. Sello independiente de narrativa urbana, ensayo y cultura de calle.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon: diamante del isotipo (reemplazar por el asset oficial cuando esté exportado) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='18' y='18' width='64' height='64' rx='14' transform='rotate(45 50 50)' fill='%23FFCC00' stroke='%230B0C0E' stroke-width='8'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ============================================================
+     DEFS SVG COMPARTIDAS
+     NOTA PARA EL CLIENTE: el isotipo de abajo es una recreación
+     vectorial de trabajo. Reemplazar por el SVG oficial exportado
+     desde el archivo maestro cuando esté disponible.
+============================================================ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Isotipo: mano caminando sobre paso de cebra, rombo señalética -->
+    <symbol id="isotipo" viewBox="0 0 100 100">
+      <rect x="17" y="17" width="66" height="66" rx="13" transform="rotate(45 50 50)" fill="#FFCC00" stroke="#0B0C0E" stroke-width="6.5"/>
+      <clipPath id="iso-clip"><rect x="21.5" y="21.5" width="57" height="57" rx="10" transform="rotate(45 50 50)"/></clipPath>
+      <g clip-path="url(#iso-clip)">
+        <!-- paso de cebra en perspectiva -->
+        <polygon points="24,58 36,56.5 33,82 18,78" fill="#fff" stroke="#0B0C0E" stroke-width="3.2"/>
+        <polygon points="43,56 57,56 59,84 41,84" fill="#fff" stroke="#0B0C0E" stroke-width="3.2"/>
+        <polygon points="64,56.5 76,58 82,78 67,82" fill="#fff" stroke="#0B0C0E" stroke-width="3.2"/>
+        <!-- mano con dedos caminando -->
+        <g fill="#fff" stroke="#0B0C0E" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M46 4 L61 4
+                   C 62.5 16, 61.5 26, 58.5 33
+                   C 64 36, 66 43, 62 48
+                   L 59 50
+                   C 60 56, 60 62, 59.5 66
+                   C 59 69.5, 53.5 69.5, 53.5 65.5
+                   C 53.8 60, 54 55, 54 51.5
+                   C 52 52.5, 50 52.5, 48.5 51.5
+                   C 47.5 55, 46 60, 44 64
+                   C 42.5 68, 37.5 66.5, 38.5 62.5
+                   C 40 57, 41 52, 41.5 48.5
+                   C 37 46.5, 35 41, 36.5 36
+                   C 33 36.5, 30.5 33.5, 32.5 30.5
+                   C 30 29.5, 30.5 25.5, 34 26
+                   C 35.5 21, 39 14, 41.5 9.5
+                   C 43 7, 44.5 5, 46 4 Z"/>
+          <path d="M37 35.5 C 39 34, 41.5 33.5, 44 34.5" fill="none" stroke-width="2.2"/>
+        </g>
+      </g>
+    </symbol>
+
+    <!-- Marcador de sección: diamante pequeño -->
+    <symbol id="diamante" viewBox="0 0 24 24">
+      <rect x="5" y="5" width="14" height="14" rx="2.5" transform="rotate(45 12 12)" fill="currentColor"/>
+    </symbol>
+
+    <!-- Flecha señalética -->
+    <symbol id="flecha" viewBox="0 0 24 24">
+      <path d="M4 12h13M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Trama halftone para fondos -->
+    <pattern id="halftone" width="9" height="9" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.15" fill="currentColor" opacity=".16"/>
+    </pattern>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#home">Saltar al contenido</a>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="top">
+  <a class="brand" href="#home" aria-label="Urbanista Editorial — inicio">
+    <svg class="brand__iso" aria-hidden="true"><use href="#isotipo"/></svg>
+    <span class="brand__word">Urbanista<small>Editorial</small></span>
+  </a>
+
+  <nav class="site-nav" aria-label="Navegación principal">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
+      <span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>
+      <span class="sr-only">Menú</span>
+    </button>
+    <ul id="nav-list" class="nav-list">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#sello">Sello</a></li>
+      <li><a href="#tienda">Tienda <span class="tag-obras">en construcción</span></a></li>
+      <li><a href="#nosotros">Sobre nosotros</a></li>
+      <li><a href="#historias">Historias urbanas</a></li>
+      <li class="nav-cta-item"><a class="btn btn--primario btn--nav" href="#contacto">Contáctanos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero__copy">
+    <p class="kicker"><svg class="kicker__d" aria-hidden="true"><use href="#diamante"/></svg> SELLO INDEPENDIENTE · SANTIAGO DE CHILE</p>
+    <h1 class="hero__title">Publica tu libro<br>y que la ciudad<br><span class="hero__title-hl">lo lea.</span></h1>
+    <p class="hero__bajada">Urbanista Editorial es un sello independiente de narrativa urbana, ensayo y cultura de calle. Convertimos manuscritos en libros con la misma calle que tienen tus historias, con un equipo que te acompaña de la primera lectura a la imprenta.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--primario" href="#contacto">Envía tu manuscrito</a>
+      <a class="btn btn--secundario" href="#servicios">Ver servicios</a>
+    </div>
+    <p class="hero__ruta-meta">RUTA 01 · DE MANUSCRITO A LIBRO · TRÁNSITO LIBRE</p>
+  </div>
+
+  <!-- Galería rotativa. Las escenas son ilustraciones duotono de dirección
+       de arte; reemplazables por fotografía real con el mismo tratamiento. -->
+  <div class="galeria" role="region" aria-roledescription="carrusel" aria-label="Galería Urbanista">
+    <div class="galeria__marco">
+      <div class="galeria__pila">
+
+        <figure class="galeria__slide is-activa" data-slide>
+          <svg viewBox="0 0 640 520" class="galeria__art" role="img" aria-label="Ilustración: manos sosteniendo un libro abierto">
+            <rect width="640" height="520" fill="#0B0C0E"/>
+            <rect width="640" height="520" fill="url(#halftone)" style="color:#006DFE"/>
+            <g stroke="#F2EEE3" stroke-width="7" fill="none" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M150 300 C 200 260, 300 250, 320 285 C 340 250, 440 260, 490 300 L 490 400 C 430 370, 350 365, 320 395 C 290 365, 210 370, 150 400 Z" fill="#0B0C0E"/>
+              <path d="M320 285 L 320 395"/>
+              <path d="M190 305 C 230 285, 280 280, 305 300 M190 330 C 230 310, 280 305, 305 325 M335 300 C 360 280, 410 285, 450 305 M335 325 C 360 305, 410 310, 450 330"/>
+            </g>
+            <path d="M150 400 C 120 430, 110 470, 130 520 L 240 520 C 220 470, 230 430, 260 405 Z" fill="#FFCC00" stroke="#F2EEE3" stroke-width="7"/>
+            <path d="M490 400 C 520 430, 530 470, 510 520 L 400 520 C 420 470, 410 430, 380 405 Z" fill="#FFCC00" stroke="#F2EEE3" stroke-width="7"/>
+            <text x="48" y="90" fill="#F2EEE3" font-family="'Bebas Neue',sans-serif" font-size="64" letter-spacing="4">LEER ES</text>
+            <text x="48" y="150" fill="#FFCC00" font-family="'Bebas Neue',sans-serif" font-size="64" letter-spacing="4">CALLEJEAR</text>
+          </svg>
+          <figcaption class="galeria__pie">01 / MANOS QUE HOJEAN</figcaption>
+        </figure>
+
+        <figure class="galeria__slide" data-slide>
+          <svg viewBox="0 0 640 520" class="galeria__art" role="img" aria-label="Ilustración: paso de cebra en perspectiva">
+            <rect width="640" height="520" fill="#006DFE"/>
+            <rect width="640" height="520" fill="url(#halftone)" style="color:#0B0C0E"/>
+            <g fill="#F2EEE3" stroke="#0B0C0E" stroke-width="6">
+              <polygon points="60,520 170,520 240,180 200,180"/>
+              <polygon points="250,520 360,520 340,180 300,180"/>
+              <polygon points="440,520 550,520 440,180 400,180"/>
+            </g>
+            <rect x="0" y="140" width="640" height="46" fill="#FFCC00" stroke="#0B0C0E" stroke-width="6"/>
+            <text x="320" y="174" text-anchor="middle" fill="#0B0C0E" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="26" letter-spacing="8">CRUCE DE HISTORIAS</text>
+          </svg>
+          <figcaption class="galeria__pie">02 / PASO DE CEBRA</figcaption>
+        </figure>
+
+        <figure class="galeria__slide" data-slide>
+          <svg viewBox="0 0 640 520" class="galeria__art" role="img" aria-label="Ilustración: manuscrito con correcciones a mano en rojo">
+            <rect width="640" height="520" fill="#F2EEE3"/>
+            <g transform="rotate(-3 320 260)">
+              <rect x="120" y="60" width="400" height="430" fill="#fff" stroke="#0B0C0E" stroke-width="6"/>
+              <g stroke="#0B0C0E" stroke-width="5" opacity=".75" stroke-linecap="round">
+                <line x1="160" y1="120" x2="480" y2="120"/><line x1="160" y1="150" x2="440" y2="150"/>
+                <line x1="160" y1="180" x2="470" y2="180"/><line x1="160" y1="240" x2="480" y2="240"/>
+                <line x1="160" y1="270" x2="410" y2="270"/><line x1="160" y1="300" x2="470" y2="300"/>
+                <line x1="160" y1="360" x2="450" y2="360"/><line x1="160" y1="390" x2="480" y2="390"/>
+              </g>
+              <g stroke="#E0342B" stroke-width="6" fill="none" stroke-linecap="round">
+                <path d="M300 150 C 320 135, 350 135, 368 150"/>
+                <circle cx="430" cy="270" r="26"/>
+                <path d="M452 292 L 500 335"/>
+                <path d="M160 210 C 240 200, 360 220, 480 205"/>
+              </g>
+            </g>
+            <rect x="0" y="0" width="640" height="26" fill="#0B0C0E"/>
+            <rect x="0" y="494" width="640" height="26" fill="#0B0C0E"/>
+            <text x="320" y="19" text-anchor="middle" fill="#FFCC00" font-family="'IBM Plex Mono',monospace" font-size="15" letter-spacing="6">BORRADOR EN TRÁNSITO — NO ESTACIONAR</text>
+          </svg>
+          <figcaption class="galeria__pie">03 / MANUSCRITO INTERVENIDO</figcaption>
+        </figure>
+
+        <figure class="galeria__slide" data-slide>
+          <svg viewBox="0 0 640 520" class="galeria__art" role="img" aria-label="Ilustración: skyline de Santiago con cordillera">
+            <rect width="640" height="520" fill="#0B0C0E"/>
+            <path d="M0 220 L 110 120 L 200 200 L 300 90 L 420 210 L 520 130 L 640 230 L 640 520 L 0 520 Z" fill="#006DFE" opacity=".55"/>
+            <g fill="#0B0C0E" stroke="#F2EEE3" stroke-width="5">
+              <rect x="60" y="300" width="70" height="220"/>
+              <rect x="150" y="250" width="60" height="270"/>
+              <rect x="230" y="330" width="80" height="190"/>
+              <rect x="330" y="200" width="55" height="320"/>
+              <rect x="405" y="300" width="75" height="220"/>
+              <rect x="500" y="260" width="60" height="260"/>
+            </g>
+            <g fill="#FFCC00">
+              <rect x="75" y="320" width="14" height="14"/><rect x="105" y="360" width="14" height="14"/>
+              <rect x="165" y="280" width="12" height="12"/><rect x="185" y="330" width="12" height="12"/>
+              <rect x="345" y="230" width="12" height="12"/><rect x="345" y="280" width="12" height="12"/>
+              <rect x="420" y="330" width="14" height="14"/><rect x="515" y="290" width="12" height="12"/>
+            </g>
+            <text x="48" y="480" fill="#F2EEE3" font-family="'Bebas Neue',sans-serif" font-size="52" letter-spacing="3">SANTIAGO SE ESCRIBE</text>
+          </svg>
+          <figcaption class="galeria__pie">04 / CIUDAD DE FONDO</figcaption>
+        </figure>
+
+        <figure class="galeria__slide" data-slide>
+          <svg viewBox="0 0 640 520" class="galeria__art" role="img" aria-label="Ilustración: pila de libros como edificios">
+            <rect width="640" height="520" fill="#FFCC00"/>
+            <rect width="640" height="520" fill="url(#halftone)" style="color:#0B0C0E"/>
+            <g stroke="#0B0C0E" stroke-width="6">
+              <rect x="140" y="380" width="360" height="60" fill="#F2EEE3" transform="rotate(-2 320 410)"/>
+              <rect x="160" y="320" width="330" height="60" fill="#006DFE" transform="rotate(1.5 320 350)"/>
+              <rect x="150" y="260" width="345" height="60" fill="#F2EEE3" transform="rotate(-1 320 290)"/>
+              <rect x="175" y="200" width="300" height="60" fill="#0B0C0E" transform="rotate(2 320 230)"/>
+              <rect x="165" y="140" width="320" height="60" fill="#F2EEE3" transform="rotate(-2 320 170)"/>
+            </g>
+            <text x="320" y="424" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="34" fill="#0B0C0E" transform="rotate(-2 320 410)">NARRATIVA</text>
+            <text x="320" y="364" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="34" fill="#F2EEE3" transform="rotate(1.5 320 350)">ENSAYO</text>
+            <text x="320" y="244" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="34" fill="#FFCC00" transform="rotate(2 320 230)">POESÍA</text>
+            <text x="320" y="90" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="22" letter-spacing="6" fill="#0B0C0E">EDICIÓN LIMITADA — DROP 001</text>
+          </svg>
+          <figcaption class="galeria__pie">05 / PILA DE LANZAMIENTOS</figcaption>
+        </figure>
+
+      </div>
+
+      <button class="galeria__flecha galeria__flecha--prev" aria-label="Imagen anterior">
+        <svg style="transform:rotate(180deg)"><use href="#flecha"/></svg>
+      </button>
+      <button class="galeria__flecha galeria__flecha--next" aria-label="Imagen siguiente">
+        <svg><use href="#flecha"/></svg>
+      </button>
+    </div>
+
+    <div class="galeria__dots" role="tablist" aria-label="Seleccionar imagen"></div>
+  </div>
+</section>
+
+<div class="ruta-divisoria" aria-hidden="true"><span></span></div>
+
+<!-- ================= SERVICIOS: LIBRO POP-UP ================= -->
+<section class="servicios" id="servicios">
+  <header class="seccion-head seccion-head--claro">
+    <p class="kicker kicker--amarillo"><svg class="kicker__d" aria-hidden="true"><use href="#diamante"/></svg> SERVICIOS A LA CARTA</p>
+    <h2>Abre el libro.<br>Elige tu servicio.</h2>
+    <p class="seccion-head__bajada">Cada página es un servicio editorial independiente. Pasa las páginas con las flechas, el teclado o deslizando en tu teléfono.</p>
+  </header>
+
+  <div class="libro-escena">
+    <div class="libro" id="libro" tabindex="0" role="group" aria-roledescription="libro interactivo" aria-label="Libro de servicios editoriales" aria-live="polite">
+      <div class="libro__atril" aria-hidden="true"></div>
+
+      <div class="libro__cuerpo">
+        <!-- Página izquierda: información del servicio -->
+        <div class="libro__pagina libro__pagina--izq">
+          <div class="pagina-info" data-info>
+            <p class="pagina-info__codigo" data-info-codigo>LEC</p>
+            <h3 class="pagina-info__titulo" data-info-titulo>Informe de lectura</h3>
+            <p class="pagina-info__desc" data-info-desc></p>
+            <a class="btn btn--linea" href="#contacto" data-info-cta>Cotizar este servicio</a>
+          </div>
+        </div>
+
+        <!-- Página derecha: escenario pop-up -->
+        <div class="libro__pagina libro__pagina--der">
+          <div class="popup-escenario" data-escenario>
+            <!-- Los pop-ups se inyectan desde main.js -->
+          </div>
+        </div>
+
+        <!-- Hoja que gira (decorativa) -->
+        <div class="libro__hoja" data-hoja aria-hidden="true">
+          <div class="libro__hoja-cara libro__hoja-cara--frente"></div>
+          <div class="libro__hoja-cara libro__hoja-cara--dorso"></div>
+        </div>
+
+        <div class="libro__lomo" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="libro__controles">
+      <button class="libro__btn" data-libro-prev aria-label="Página anterior">
+        <svg style="transform:rotate(180deg)"><use href="#flecha"/></svg>
+      </button>
+      <p class="libro__folio" data-folio>pág. 1 de 6</p>
+      <button class="libro__btn" data-libro-next aria-label="Página siguiente">
+        <svg><use href="#flecha"/></svg>
+      </button>
+    </div>
+    <p class="libro__ayuda">← → con teclado · desliza en mobile</p>
+  </div>
+</section>
+
+<!-- ================= RUTA COMPLETA ================= -->
+<section class="ruta" id="ruta">
+  <header class="seccion-head">
+    <p class="kicker"><svg class="kicker__d" aria-hidden="true"><use href="#diamante"/></svg> SERVICIO COMPLETO</p>
+    <h2>Publica tu libro con nosotros</h2>
+    <p class="seccion-head__bajada">El viaje completo, kilómetro a kilómetro. Tú escribes; nosotros hacemos el resto del camino contigo.</p>
+  </header>
+
+  <ol class="ruta__linea">
+    <li class="ruta__parada">
+      <p class="ruta__km">KM 01</p>
+      <h3>Evaluación</h3>
+      <p>Informe de lectura y evaluación de manuscrito. Si tu libro calza con el sello, entra a selección de catálogo.</p>
+    </li>
+    <li class="ruta__parada">
+      <p class="ruta__km">KM 02</p>
+      <h3>Edición</h3>
+      <p>Edición de contenido y desarrollo editorial, corrección de estilo y corrección ortotipográfica antes de imprenta.</p>
+    </li>
+    <li class="ruta__parada">
+      <p class="ruta__km">KM 03</p>
+      <h3>Producción</h3>
+      <p>Diseño de portada y maquetación, preimpresión y gestión de imprenta. Audiolibro o booktrailer, si el proyecto lo pide.</p>
+    </li>
+  </ol>
+
+  <div class="ruta__cta">
+    <a class="btn btn--primario" href="#contacto">Envía tu manuscrito</a>
+  </div>
+</section>
+
+<!-- ================= SELLO ================= -->
+<section class="sello" id="sello">
+  <header class="seccion-head">
+    <p class="kicker"><svg class="kicker__d" aria-hidden="true"><use href="#diamante"/></svg> CATÁLOGO</p>
+    <h2>Sello</h2>
+    <p class="seccion-head__bajada">Estamos armando las primeras colecciones del catálogo. Los nombres se anuncian cuando estén listos — no antes.</p>
+  </header>
+
+  <div class="sello__grilla">
+    <article class="sello__carta">
+      <p class="sello__num">SELLO 01</p>
+      <p class="sello__estado">POR ANUNCIAR</p>
+    </article>
+    <article class="sello__carta">
+      <p class="sello__num">SELLO 02</p>
+      <p class="sello__estado">POR ANUNCIAR</p>
+    </article>
+    <article class="sello__carta">
+      <p class="sello__num">SELLO 03</p>
+      <p class="sello__estado">POR ANUNCIAR</p>
+    </article>
+  </div>
+</section>
+
+<!-- ================= TIENDA ================= -->
+<section class="tienda" id="tienda">
+  <div class="tienda__cinta" aria-hidden="true">
+    <div class="tienda__cinta-texto">
+      <span>TIENDA EN CONSTRUCCIÓN · DESVÍO POR LIBRERÍAS · </span><span>TIENDA EN CONSTRUCCIÓN · DESVÍO POR LIBRERÍAS · </span><span>TIENDA EN CONSTRUCCIÓN · DESVÍO POR LIBRERÍAS · </span>
+    </div>
+  </div>
+
+  <div class="tienda__cuerpo">
+    <h2>Tienda propia: <span class="txt-amarillo">en obras.</span></h2>
+    <p>Estamos armando el catálogo para venderte directo, sin intermediarios. Mientras tanto, nuestros títulos llegan a ti por el camino de siempre: librerías y distribuidor. Cuando la tienda abra, quienes estén en la lista lo sabrán primero.</p>
+
+    <!-- DEMO VISUAL: conectar a Mailchimp / Formspree antes de lanzar -->
+    <form class="tienda__aviso" data-demo-form>
+      <label class="sr-only" for="aviso-correo">Tu correo</label>
+      <input id="aviso-correo" type="email" placeholder="tu@correo.cl" required>
+      <button class="btn btn--amarillo" type="submit">Avísame cuando abra</button>
+    </form>
+    <p class="nota-demo" data-demo-msg aria-live="polite"></p>
+  </div>
+</section>
+
+<!-- ================= SOBRE NOSOTROS ================= -->
+<section class="nosotros" id="nosotros">
+  <header class="seccion-head">
+    <p class="kicker"><svg class="kicker__d" aria-hidden="true"><use href="#diamante"/></svg> SOBRE NOSOTROS</p>
+    <h2>Oficio de urbanista,<br>vocación de editor</h2>
+  </header>
+
+  <blockquote class="manifiesto">
+    <p>«Del oficio de quien estudia y diseña la ciudad — no como infraestructura, sino como el espacio donde ocurre la vida. Leemos el territorio y entendemos cómo los espacios moldean a las personas, para proyectar algo distinto. Esa es la relación que queremos con nuestros lectores y nuestros libros.»</p>
+  </blockquote>
+
+  <div class="bios">
+    <article class="bio">
+      <p class="bio__rol">FUNDADOR</p>
+      <h3>Andrés Varas</h3>
+      <p>La mirada creativa detrás del sello. Fundó Urbanista con una idea fija: que un libro se puede esperar como se espera un disco.</p>
+    </article>
+    <article class="bio">
+      <p class="bio__rol">CEO</p>
+      <h3>Sebastián Aravena</h3>
+      <p>Lleva la operación de la editorial: autores, servicios editoriales, imprenta y distribución del día a día.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ================= HISTORIAS URBANAS ================= -->
+<section class="historias" id="historias">
+  <header class="seccion-head seccion-head--claro">
+    <p class="kicker kicker--amarillo"><svg class="kicker__d" aria-hidden="true"><use href="#diamante"/></svg> ESPACIO ABIERTO</p>
+    <h2>Historias urbanas</h2>
+    <p class="seccion-head__bajada">Un muro abierto para cuentos cortos con calle. Si tu historia respira ciudad, este es su primer muro.</p>
+  </header>
+
+  <ol class="historias__pasos">
+    <li>
+      <h3>Envías tu cuento</h3>
+      <p>Un cuento corto, por el formulario de contacto. Sin requisitos raros ni formularios eternos.</p>
+    </li>
+    <li>
+      <h3>Lo leemos completo</h3>
+      <p>El equipo lo lee de principio a fin. Sin filtros automáticos, sin algoritmos decidiendo por nosotros.</p>
+    </li>
+    <li>
+      <h3>Se publica aquí</h3>
+      <p>Si encaja con el espíritu urbano del sello, aparece en este índice con número de historia, tu nombre y el año.</p>
+    </li>
+  </ol>
+
+  <div class="historias__indice">
+    <p class="historias__indice-titulo">ÍNDICE — <span class="txt-amarillo">VISTA PREVIA</span> (formato de ejemplo, aún sin historias publicadas)</p>
+    <ul>
+      <li><span class="hist-num">N.° 001</span><span class="hist-titulo">Título de la primera historia</span><span class="hist-autor">Autor/a</span><span class="hist-anio">2026</span></li>
+      <li><span class="hist-num">N.° 002</span><span class="hist-titulo">Título de la segunda historia</span><span class="hist-autor">Autor/a</span><span class="hist-anio">2026</span></li>
+      <li><span class="hist-num">N.° 003</span><span class="hist-titulo">Podría ser la tuya</span><span class="hist-autor">Tu nombre</span><span class="hist-anio">2026</span></li>
+    </ul>
+  </div>
+
+  <div class="historias__cta">
+    <a class="btn btn--amarillo" href="#contacto">Envía tu historia</a>
+  </div>
+</section>
+
+<!-- ================= CONTACTO ================= -->
+<section class="contacto" id="contacto">
+  <header class="seccion-head">
+    <p class="kicker"><svg class="kicker__d" aria-hidden="true"><use href="#diamante"/></svg> CONTÁCTANOS</p>
+    <h2>Hablemos de tu libro</h2>
+  </header>
+
+  <div class="contacto__grilla">
+    <!-- DEMO VISUAL: conectar a Formspree o correo real antes de lanzar -->
+    <form class="contacto__form" data-demo-form>
+      <div class="campo">
+        <label for="c-nombre">Nombre</label>
+        <input id="c-nombre" type="text" autocomplete="name" required>
+      </div>
+      <div class="campo">
+        <label for="c-correo">Correo</label>
+        <input id="c-correo" type="email" autocomplete="email" required>
+      </div>
+      <div class="campo">
+        <label for="c-motivo">Motivo</label>
+        <select id="c-motivo" required>
+          <option value="">Elige un motivo</option>
+          <option>Quiero publicar mi manuscrito</option>
+          <option>Cotizar un servicio a la carta</option>
+          <option>Enviar una historia para Historias Urbanas</option>
+          <option>Otra consulta</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="c-mensaje">Mensaje</label>
+        <textarea id="c-mensaje" rows="6" required placeholder="Cuéntanos de tu proyecto. Si es un manuscrito: género, extensión aproximada y en qué etapa está."></textarea>
+      </div>
+      <button class="btn btn--primario" type="submit">Enviar mensaje</button>
+      <p class="nota-demo" data-demo-msg aria-live="polite"></p>
+    </form>
+
+    <aside class="contacto__datos">
+      <dl>
+        <div>
+          <dt>CORREO</dt>
+          <dd><a href="mailto:contacto@urbanistaeditorial.cl">contacto@urbanistaeditorial.cl</a></dd>
+        </div>
+        <div>
+          <dt>CIUDAD</dt>
+          <dd>Santiago, Chile</dd>
+        </div>
+        <div>
+          <dt>RESPUESTA</dt>
+          <dd>Dentro de 5 días hábiles. Los manuscritos toman más: los leemos de verdad.</dd>
+        </div>
+        <div>
+          <dt>REDES</dt>
+          <dd><a href="#" rel="noopener">Instagram</a> · <a href="#" rel="noopener">TikTok</a> · <a href="#" rel="noopener">X</a></dd>
+        </div>
+      </dl>
+      <svg class="contacto__iso" aria-hidden="true"><use href="#isotipo"/></svg>
+    </aside>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__linea" aria-hidden="true"></div>
+  <p class="site-footer__marca">URBANISTA EDITORIAL</p>
+  <p class="site-footer__meta">Sello independiente · Santiago de Chile · © 2026</p>
+  <p class="site-footer__firma">Hecho a mano, como los buenos libros.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
