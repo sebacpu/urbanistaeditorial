@@ -336,7 +336,7 @@ a { color: var(--azul); }
   transform-style: preserve-3d;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 460px;
+  min-height: 540px;
   transform: rotateX(7deg);
 }
 
@@ -354,7 +354,7 @@ a { color: var(--azul); }
   background: var(--papel);
   border: var(--borde-grueso);
   position: relative;
-  min-height: 460px;
+  min-height: 540px;
   overflow: hidden;
 }
 .libro__pagina--izq {
@@ -393,7 +393,7 @@ a { color: var(--azul); }
 }
 .pagina-info__codigo {
   font-family: var(--f-mono); font-weight: 600;
-  font-size: .95rem; letter-spacing: .3em;
+  font-size: .78rem; letter-spacing: .12em;
   background: var(--tinta); color: var(--amarillo);
   padding: .35rem .8rem;
 }

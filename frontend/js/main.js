@@ -193,68 +193,44 @@
        </g>`,
       `<rect x="105" y="30" width="150" height="34" fill="#0B0C0E" rx="4"/>
        <text x="180" y="54" text-anchor="middle" fill="#FFCC00" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="14" letter-spacing="2">UNO A UNO</text>`
-    ],
-
-    fin: [
-      `<rect x="166" y="150" width="28" height="110" fill="#0B0C0E" rx="4"/>`,
-      `<g transform="rotate(45 180 120)">
-         <rect x="115" y="55" width="130" height="130" rx="22" fill="#FFCC00" stroke="#0B0C0E" stroke-width="9"/>
-         <rect x="127" y="67" width="106" height="106" rx="16" fill="none" stroke="#fff" stroke-width="5"/>
-       </g>`,
-      `<g fill="#fff" stroke="#0B0C0E" stroke-width="5" stroke-linejoin="round">
-         <polygon points="138,128 162,126 160,168 132,160"/>
-         <polygon points="168,125 192,125 194,170 166,170"/>
-         <polygon points="198,126 222,128 228,160 200,168"/>
-       </g>`,
-      `<path d="M180 30 C 187 44, 190 58, 187 70 C 194 74, 196 82, 193 90 L 189 104 C 187 111, 178 110, 178 103 L 178 96 C 174 97, 170 96, 167 93 L 163 110 C 161 117, 152 115, 153 108 L 155 88 C 149 84, 147 76, 150 70 L 158 46 C 162 38, 171 32, 180 30 Z"
-             fill="#fff" stroke="#0B0C0E" stroke-width="5" stroke-linejoin="round"/>`,
-      `<rect x="90" y="252" width="180" height="34" fill="#006DFE" rx="4"/>
-       <text x="180" y="276" text-anchor="middle" fill="#fff" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="14" letter-spacing="3">RUTA COMPLETA</text>`
     ]
   };
 
   const SERVICIOS = [
     {
-      codigo: 'LEC',
+      codigo: 'SERVICIO #01',
       titulo: 'Informe de lectura',
-      desc: 'Leemos tu manuscrito completo — no la sinopsis, no las primeras veinte páginas — y te devolvemos un informe honesto: qué funciona, qué cojea y si está listo para dar el siguiente paso.',
+      desc: 'Una lectura profesional de tu manuscrito en la que evaluamos distintos aspectos. Estructura, ritmo, coherencia narrativa, potencial editorial. ¡Te devolvemos todo en un informe!',
       pop: 'lec',
       cta: 'Cotizar este servicio'
     },
     {
-      codigo: 'EST',
+      codigo: 'SERVICIO #02',
       titulo: 'Corrección de estilo',
-      desc: 'Trabajamos la prosa frase a frase: ritmo, claridad, repeticiones, muletillas, voz. El texto sigue siendo tuyo — solo que afilado.',
+      desc: 'Una revisión en la que afinamos y fortalecemos tu estilo de escritura sin perder de vista tu esencia como creativ@. Estudiamos el ritmo de tu historia y las palabras con las que decidiste contarla.',
       pop: 'est',
       cta: 'Cotizar este servicio'
     },
     {
-      codigo: 'ORT',
+      codigo: 'SERVICIO #03',
       titulo: 'Corrección ortotipográfica',
-      desc: 'La pasada final antes de imprenta: ortografía, puntuación, tildes, comillas, guiones largos, espacios dobles. La lupa que no perdona nada.',
+      desc: 'Una revisión en la que cazamos errores de ortografía, tildes, puntuación, mayúsculas y detalles que pudiste pasar por alto. No tocamos ni el ritmo, ni las frases.',
       pop: 'ort',
       cta: 'Cotizar este servicio'
     },
     {
-      codigo: 'DIA',
+      codigo: 'SERVICIO #04',
       titulo: 'Diagramación editorial',
-      desc: 'Convertimos el texto en páginas: tipografía, interlineado, márgenes, folios, capitulares. Un interior que se lee solo y no se nota — que es como se nota el buen diseño.',
+      desc: '¡Diseñamos la presentación de tu manuscrito! Tipografía, interlineado, márgenes. Queremos que el espíritu de tu obra se transmita en los detalles grandes y pequeños.',
       pop: 'dia',
       cta: 'Cotizar este servicio'
     },
     {
-      codigo: 'MEN',
+      codigo: 'SERVICIO #05',
       titulo: 'Mentorías personalizadas',
-      desc: 'Sesiones uno a uno con un editor para destrabar tu proyecto: de la idea suelta al manuscrito terminado, a tu ritmo y con tareas concretas entre sesión y sesión.',
+      desc: 'Todo/a creativ@ tiene sus dudas. Coordinamos una sesión 1:1 para resolver justo lo que necesitas. ¿Por dónde empezar? ¡Dayummm, no salgo del primer capítulo! ¿Cómo funciona el proceso editorial? ¿Cómo estructuro mi obra?',
       pop: 'men',
       cta: 'Cotizar este servicio'
-    },
-    {
-      codigo: 'FIN',
-      titulo: 'Publica tu libro con nosotros',
-      desc: '¿Quieres el viaje completo? Evaluación, edición y producción: de la primera lectura a la imprenta, con el equipo al lado en cada kilómetro. Este libro se cierra donde empieza el tuyo.',
-      pop: 'fin',
-      cta: 'Envía tu manuscrito'
     }
   ];
 
