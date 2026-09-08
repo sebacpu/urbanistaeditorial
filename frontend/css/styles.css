@@ -10,6 +10,7 @@
   --papel: #F2EEE3;
   --blanco: #FFFFFF;
   --rojo-correccion: #E0342B;
+  --verde: #1BD15A;
 
   --f-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
   --f-cuerpo: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
@@ -528,21 +529,28 @@ a { color: var(--azul); }
 
 .ruta { padding: 5.5rem 0 5rem; }
 
+.ruta__intro {
+  max-width: 46rem;
+  display: grid;
+  gap: .85rem;
+  font-size: 1.05rem;
+}
+
 .ruta__linea {
   max-width: var(--ancho-max);
   margin: 0 auto;
   padding: 1rem 1.5rem 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
   position: relative;
 }
-/* línea de ruta que conecta las paradas */
+/* calzada que conecta los postes de las señaléticas */
 .ruta__linea::before {
   content: "";
   position: absolute;
-  top: 2.6rem; left: 3rem; right: 3rem;
+  top: 6.15rem; left: 2.4rem; right: 2.4rem;
   border-top: 3px dashed var(--tinta);
   opacity: .35;
 }
@@ -551,23 +559,66 @@ a { color: var(--azul); }
   position: relative;
   display: grid; gap: .7rem;
   align-content: start;
+  justify-items: start;
 }
+.ruta__senal {
+  width: 72px;
+  height: 94px;
+  position: relative;
+  z-index: 1;
+}
+.ruta__senal svg { width: 100%; height: 100%; display: block; }
+.ruta__parada:nth-child(1) .ruta__senal { transform: rotate(-3deg); }
+.ruta__parada:nth-child(2) .ruta__senal { transform: rotate(2.4deg); }
+.ruta__parada:nth-child(3) .ruta__senal { transform: rotate(-2deg); }
+.ruta__parada:nth-child(4) .ruta__senal { transform: rotate(3deg); }
+
 .ruta__km {
   font-family: var(--f-mono); font-weight: 600;
-  font-size: .9rem; letter-spacing: .2em;
+  font-size: .82rem; letter-spacing: .16em;
   background: var(--azul); color: var(--blanco);
   display: inline-block; justify-self: start;
-  padding: .55rem 1rem;
+  padding: .5rem .85rem;
   border: var(--borde-grueso);
   box-shadow: 4px 4px 0 var(--tinta);
   position: relative; z-index: 1;
 }
 .ruta__parada:nth-child(2) .ruta__km { background: var(--amarillo); color: var(--tinta); }
-.ruta__parada p:not(.ruta__km) { max-width: 30ch; }
+.ruta__parada:nth-child(3) .ruta__km { background: var(--blanco); color: var(--tinta); }
+.ruta__parada:nth-child(4) .ruta__km { background: var(--azul); color: var(--blanco); }
+.ruta__parada p:not(.ruta__km) { max-width: 32ch; font-size: .98rem; }
+
+.ruta__aviso {
+  max-width: var(--ancho-max);
+  margin: 2.8rem auto 0;
+  padding: 1.25rem 1.4rem 1.2rem;
+  width: calc(100% - 3rem);
+  display: grid;
+  gap: .5rem;
+  background: var(--blanco);
+  border: var(--borde-grueso);
+  box-shadow: 5px 5px 0 var(--tinta);
+}
+.ruta__aviso::before {
+  content: "";
+  height: 12px;
+  margin: -1.25rem -1.4rem .85rem;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--tinta) 0 9px,
+    var(--amarillo) 9px 18px
+  );
+  border-bottom: var(--borde-grueso);
+}
+.ruta__aviso-tag {
+  font-family: var(--f-mono); font-weight: 600;
+  font-size: .78rem; letter-spacing: .22em;
+}
+.ruta__aviso p:last-child { max-width: 52rem; }
 
 .ruta__cta {
   max-width: var(--ancho-max);
-  margin: 3rem auto 0;
+  margin: 1.8rem auto 0;
   padding: 0 1.5rem;
 }
 
@@ -678,17 +729,41 @@ a { color: var(--azul); }
 
 .nosotros { padding: 5.5rem 0 5rem; }
 
-.manifiesto {
-  max-width: 850px;
-  margin: 0 auto 3.5rem;
+.nosotros__intro {
+  max-width: 46rem;
+  margin: 0 auto 2.6rem;
   padding: 0 1.5rem;
+  display: grid;
+  gap: .9rem;
 }
-.manifiesto p {
+.nosotros__lead {
   font-family: var(--f-display);
-  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
-  line-height: 1.15;
-  border-left: 8px solid var(--amarillo);
-  padding-left: 1.6rem;
+  font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+  line-height: 1.1;
+  letter-spacing: .01em;
+}
+
+.nosotros__ejes {
+  max-width: var(--ancho-max);
+  margin: 0 auto 3.4rem;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+}
+.nosotros__eje {
+  border: var(--borde-grueso);
+  padding: 1.4rem 1.5rem 1.5rem;
+  background: var(--blanco);
+  box-shadow: 4px 4px 0 var(--tinta);
+  display: grid;
+  gap: .7rem;
+  align-content: start;
+}
+.nosotros__eje-tag {
+  font-family: var(--f-mono); font-weight: 600;
+  font-size: .75rem; letter-spacing: .22em;
+  color: var(--azul);
 }
 
 .bios {
@@ -722,6 +797,14 @@ a { color: var(--azul); }
 }
 .historias h2 { color: var(--papel); }
 
+.historias__intro {
+  max-width: 46rem;
+  display: grid;
+  gap: .85rem;
+  font-size: 1.05rem;
+}
+.historias__intro p { color: color-mix(in srgb, var(--papel) 86%, transparent); }
+
 .historias__pasos {
   max-width: var(--ancho-max);
   margin: 0 auto 3rem;
@@ -745,7 +828,22 @@ a { color: var(--azul); }
   font-size: .8rem; letter-spacing: .2em;
   color: var(--amarillo);
 }
-.historias__pasos p { opacity: .82; max-width: 30ch; }
+.historias__pasos p { opacity: .82; max-width: 34ch; }
+
+.historias__nota {
+  max-width: var(--ancho-max);
+  margin: 0 auto 2.4rem;
+  padding: 0 1.5rem;
+}
+.historias__nota p {
+  max-width: 46rem;
+  font-family: var(--f-mono);
+  font-size: .82rem;
+  letter-spacing: .02em;
+  border-left: 4px solid var(--amarillo);
+  padding: .2rem 0 .2rem 1rem;
+  opacity: .88;
+}
 
 .historias__indice {
   max-width: var(--ancho-max);
@@ -755,18 +853,39 @@ a { color: var(--azul); }
 .historias__indice-titulo {
   font-family: var(--f-mono); font-weight: 600;
   font-size: .78rem; letter-spacing: .2em;
-  margin-bottom: 1rem; opacity: .9;
+  margin-bottom: .7rem; opacity: .9;
+}
+.historias__leyenda {
+  display: flex; flex-wrap: wrap; gap: .7rem 1.4rem;
+  font-family: var(--f-mono); font-size: .72rem;
+  letter-spacing: .08em;
+  opacity: .75;
+  margin-bottom: 1.1rem;
+}
+.historias__leyenda span {
+  display: inline-flex; align-items: center; gap: .45rem;
 }
 .historias__indice ul { list-style: none; }
 .historias__indice li {
   display: grid;
-  grid-template-columns: 8ch 1fr auto auto;
+  grid-template-columns: 14px 8ch 1fr auto auto;
   gap: 1.5rem;
-  align-items: baseline;
+  align-items: center;
   padding: .9rem 0;
   border-bottom: 1px dashed rgba(242, 238, 227, .35);
   font-family: var(--f-mono); font-size: .9rem;
 }
+.hist-luz {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--tinta);
+  box-shadow: 0 0 0 2px var(--papel);
+  display: inline-block;
+  flex: none;
+}
+.hist-luz--verde { background: var(--verde); }
+.hist-luz--roja { background: var(--rojo-correccion); }
+.hist-luz--amarilla { background: var(--amarillo); }
 .hist-num { color: var(--amarillo); font-weight: 600; }
 .hist-titulo { font-family: var(--f-cuerpo); font-style: italic; opacity: .85; }
 .hist-autor, .hist-anio { opacity: .6; font-size: .8rem; }
@@ -870,15 +989,21 @@ a { color: var(--azul); }
    RESPONSIVE
 ============================================================ */
 
+@media (max-width: 1100px) {
+  .ruta__linea { grid-template-columns: 1fr 1fr; }
+  .ruta__linea::before { display: none; }
+}
+
 @media (max-width: 960px) {
   .hero { grid-template-columns: 1fr; gap: 3rem; }
   .galeria__marco { transform: rotate(0deg); }
   .galeria__flecha--prev { left: 8px; }
   .galeria__flecha--next { right: 8px; }
 
-  .ruta__linea, .historias__pasos, .sello__grilla { grid-template-columns: 1fr; }
+  .ruta__linea { grid-template-columns: 1fr 1fr; }
+  .historias__pasos, .sello__grilla { grid-template-columns: 1fr; }
   .ruta__linea::before { display: none; }
-  .bios { grid-template-columns: 1fr; }
+  .bios, .nosotros__ejes { grid-template-columns: 1fr; }
   .contacto__grilla { grid-template-columns: 1fr; }
 
   /* libro: apilar páginas verticalmente */
@@ -936,12 +1061,13 @@ a { color: var(--azul); }
   .nav-cta-item { margin-top: .6rem; }
 
   .hero { padding-top: 2.6rem; }
+  .ruta__linea { grid-template-columns: 1fr; }
   .historias__indice li {
-    grid-template-columns: 8ch 1fr;
+    grid-template-columns: 14px 8ch 1fr;
     row-gap: .2rem;
   }
-  .hist-autor { grid-column: 2; }
-  .hist-anio { grid-column: 2; }
+  .hist-autor { grid-column: 3; }
+  .hist-anio { grid-column: 3; }
 }
 
 /* ============================================================

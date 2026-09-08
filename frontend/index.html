@@ -70,6 +70,56 @@
       <path d="M4 12h13M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
 
+    <!-- KM 01: octágono tipo PARE — control de lectura -->
+    <symbol id="senal-control" viewBox="0 0 80 104">
+      <rect x="37" y="74" width="6" height="26" fill="#0B0C0E"/>
+      <polygon points="28,6 52,6 74,28 74,52 52,74 28,74 6,52 6,28" fill="#E0342B" stroke="#0B0C0E" stroke-width="4.5" stroke-linejoin="round"/>
+      <g fill="#fff" stroke="#0B0C0E" stroke-width="2.4" stroke-linejoin="round">
+        <rect x="27" y="26" width="18" height="24" rx="1.5"/>
+        <rect x="35" y="30" width="18" height="24" rx="1.5"/>
+      </g>
+      <line x1="31" y1="34" x2="41" y2="34" stroke="#0B0C0E" stroke-width="2"/>
+      <line x1="31" y1="40" x2="41" y2="40" stroke="#0B0C0E" stroke-width="2"/>
+      <line x1="39" y1="38" x2="49" y2="38" stroke="#0B0C0E" stroke-width="2"/>
+      <line x1="39" y1="44" x2="49" y2="44" stroke="#0B0C0E" stroke-width="2"/>
+    </symbol>
+
+    <!-- KM 02: placa azul de dirección — propuesta / cruce -->
+    <symbol id="senal-acuerdo" viewBox="0 0 80 104">
+      <rect x="37" y="74" width="6" height="26" fill="#0B0C0E"/>
+      <rect x="8" y="10" width="64" height="62" rx="5" fill="#006DFE" stroke="#0B0C0E" stroke-width="4.5"/>
+      <path d="M20 41 h18 l-7-8 M38 41 l-7 8" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M60 41 h-18 l7-8 M42 41 l7 8" fill="none" stroke="#FFCC00" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="40" cy="41" r="4.5" fill="#fff" stroke="#0B0C0E" stroke-width="2.2"/>
+    </symbol>
+
+    <!-- KM 03: rombo de obras — edición en la vía -->
+    <symbol id="senal-obras" viewBox="0 0 80 104">
+      <rect x="37" y="74" width="6" height="26" fill="#0B0C0E"/>
+      <rect x="16" y="12" width="48" height="48" rx="4" transform="rotate(45 40 36)" fill="#FFCC00" stroke="#0B0C0E" stroke-width="4.5"/>
+      <g fill="none" stroke="#0B0C0E" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="32" y="22" width="16" height="20" rx="1.5" fill="#fff"/>
+        <line x1="36" y1="28" x2="44" y2="28"/>
+        <line x1="36" y1="33" x2="44" y2="33"/>
+        <line x1="36" y1="38" x2="42" y2="38"/>
+      </g>
+      <g transform="rotate(-28 52 48)">
+        <rect x="48" y="30" width="5" height="26" rx="1.5" fill="#E0342B" stroke="#0B0C0E" stroke-width="2.2"/>
+        <polygon points="48,56 53,56 50.5,62" fill="#F2EEE3" stroke="#0B0C0E" stroke-width="2.2"/>
+      </g>
+    </symbol>
+
+    <!-- KM 04: semáforo — luz azul de salida a la ciudad -->
+    <symbol id="senal-semaforo" viewBox="0 0 80 104">
+      <rect x="37" y="80" width="6" height="20" fill="#0B0C0E"/>
+      <rect x="26" y="6" width="28" height="74" rx="7" fill="#0B0C0E" stroke="#0B0C0E" stroke-width="3"/>
+      <rect x="29" y="9" width="22" height="68" rx="5" fill="#1a1c20"/>
+      <circle cx="40" cy="24" r="8" fill="#E0342B" opacity=".38"/>
+      <circle cx="40" cy="43" r="8" fill="#FFCC00" opacity=".38"/>
+      <circle cx="40" cy="62" r="8" fill="#006DFE"/>
+      <circle cx="40" cy="62" r="8" fill="none" stroke="#F2EEE3" stroke-width="2"/>
+    </symbol>
+
     <!-- Trama halftone para fondos -->
     <pattern id="halftone" width="9" height="9" patternUnits="userSpaceOnUse">
       <circle cx="2" cy="2" r="1.15" fill="currentColor" opacity=".16"/>
@@ -296,26 +346,51 @@
   <header class="seccion-head">
     <p class="kicker"><svg class="kicker__d" aria-hidden="true"><use href="#diamante"/></svg> SERVICIO COMPLETO</p>
     <h2>Publica tu libro con nosotros</h2>
-    <p class="seccion-head__bajada">El viaje completo, kilómetro a kilómetro. Tú escribes; nosotros hacemos el resto del camino contigo.</p>
+    <div class="ruta__intro">
+      <p>¡Ven y haz el viaje completo! En Urbanista publicamos narrativa de distintos géneros: ciencia ficción, romance, fantasía, distopía, terror, realismo mágico y novela negra.</p>
+      <p>Nos interesa conocer mentes creativas con una visión sobre su obra que trascienda las páginas. Textos con intención, corazón y ganas de impactar en la cultura. ¿Tu manuscrito y tú dialogan con todo lo anterior? Te invitamos a conocer los detalles del recorrido:</p>
+    </div>
   </header>
 
   <ol class="ruta__linea">
     <li class="ruta__parada">
+      <div class="ruta__senal" aria-hidden="true">
+        <svg><use href="#senal-control"/></svg>
+      </div>
       <p class="ruta__km">KM 01</p>
       <h3>Evaluación</h3>
-      <p>Informe de lectura y evaluación de manuscrito. Si tu libro calza con el sello, entra a selección de catálogo.</p>
+      <p>Recibimos tu obra y valoramos si dialoga con nuestra línea editorial. Si es el caso, llevamos a cabo un informe de lectura y entramos en contacto contigo.</p>
     </li>
     <li class="ruta__parada">
+      <div class="ruta__senal" aria-hidden="true">
+        <svg><use href="#senal-acuerdo"/></svg>
+      </div>
       <p class="ruta__km">KM 02</p>
-      <h3>Edición</h3>
-      <p>Edición de contenido y desarrollo editorial, corrección de estilo y corrección ortotipográfica antes de imprenta.</p>
+      <h3>Propuesta editorial</h3>
+      <p>Conversamos contigo sobre lo que vimos en tu manuscrito y te presentamos nuestra propuesta: alcances, tiempos y condiciones del proceso. ¡Si decidimos seguir, formalizamos el acuerdo!</p>
     </li>
     <li class="ruta__parada">
+      <div class="ruta__senal" aria-hidden="true">
+        <svg><use href="#senal-obras"/></svg>
+      </div>
       <p class="ruta__km">KM 03</p>
-      <h3>Producción</h3>
-      <p>Diseño de portada y maquetación, preimpresión y gestión de imprenta. Audiolibro o booktrailer, si el proyecto lo pide.</p>
+      <h3>Edición y producción</h3>
+      <p>Trabajamos tu texto de la mano con tu visión creativa. En esta etapa tenemos todas las conversaciones para que tu obra alcance su mejor versión. Editamos contenido, estilo, ortografía, diseñamos y diagramamos un proyecto que armoniza en cada una de sus páginas.</p>
+    </li>
+    <li class="ruta__parada">
+      <div class="ruta__senal" aria-hidden="true">
+        <svg><use href="#senal-semaforo"/></svg>
+      </div>
+      <p class="ruta__km">KM 04</p>
+      <h3>Impresión y lanzamiento</h3>
+      <p>Producimos tu libro y lo llevamos a la ciudad: distribución, lanzamiento y ponemos en juego estrategias digitales para que tu obra encuentre a su público objetivo.</p>
     </li>
   </ol>
+
+  <aside class="ruta__aviso">
+    <p class="ruta__aviso-tag">IMPORTANTE</p>
+    <p>Solo recibimos obras completas, originales e inéditas. Por el momento, trabajamos únicamente con autores residentes en Chile.</p>
+  </aside>
 
   <div class="ruta__cta">
     <a class="btn btn--primario" href="#contacto">Envía tu manuscrito</a>
@@ -350,19 +425,19 @@
 <section class="tienda" id="tienda">
   <div class="tienda__cinta" aria-hidden="true">
     <div class="tienda__cinta-texto">
-      <span>TIENDA EN CONSTRUCCIÓN · DESVÍO POR LIBRERÍAS · </span><span>TIENDA EN CONSTRUCCIÓN · DESVÍO POR LIBRERÍAS · </span><span>TIENDA EN CONSTRUCCIÓN · DESVÍO POR LIBRERÍAS · </span>
+      <span>TIENDA EN CONSTRUCCIÓN · PRÓXIMOS TÍTULOS · </span><span>TIENDA EN CONSTRUCCIÓN · PRÓXIMOS TÍTULOS · </span><span>TIENDA EN CONSTRUCCIÓN · PRÓXIMOS TÍTULOS · </span>
     </div>
   </div>
 
   <div class="tienda__cuerpo">
-    <h2>Tienda propia: <span class="txt-amarillo">en obras.</span></h2>
-    <p>Estamos armando el catálogo para venderte directo, sin intermediarios. Mientras tanto, nuestros títulos llegan a ti por el camino de siempre: librerías y distribuidor. Cuando la tienda abra, quienes estén en la lista lo sabrán primero.</p>
+    <h2>Tienda: <span class="txt-amarillo">en construcción</span></h2>
+    <p>Estamos trabajando en construir este espacio para venderte sin intermediarios. Pronto se aproximan nuevos títulos de la editorial. ¡Anotate en la lista para conocer nuestras próximas novedades!</p>
 
     <!-- DEMO VISUAL: conectar a Mailchimp / Formspree antes de lanzar -->
     <form class="tienda__aviso" data-demo-form>
       <label class="sr-only" for="aviso-correo">Tu correo</label>
       <input id="aviso-correo" type="email" placeholder="tu@correo.cl" required>
-      <button class="btn btn--amarillo" type="submit">Avísame cuando abra</button>
+      <button class="btn btn--amarillo" type="submit">Anotarme en la lista</button>
     </form>
     <p class="nota-demo" data-demo-msg aria-live="polite"></p>
   </div>
@@ -372,12 +447,24 @@
 <section class="nosotros" id="nosotros">
   <header class="seccion-head">
     <p class="kicker"><svg class="kicker__d" aria-hidden="true"><use href="#diamante"/></svg> SOBRE NOSOTROS</p>
-    <h2>Oficio de urbanista,<br>vocación de editor</h2>
+    <h2>Somos Urbanista</h2>
   </header>
 
-  <blockquote class="manifiesto">
-    <p>«Del oficio de quien estudia y diseña la ciudad — no como infraestructura, sino como el espacio donde ocurre la vida. Leemos el territorio y entendemos cómo los espacios moldean a las personas, para proyectar algo distinto. Esa es la relación que queremos con nuestros lectores y nuestros libros.»</p>
-  </blockquote>
+  <div class="nosotros__intro">
+    <p class="nosotros__lead">Urbanista es más que una editorial. Somos una casa creativa.</p>
+    <p>Nuestro equipo nace a raíz de la necesidad de abordar la literatura desde nuevas perspectivas, explorando y potenciando la visión que cada escritor/a ha depositado en su obra. Nos enorgullece querer escuchar nuevas voces e impulsar la literatura a las nuevas generaciones.</p>
+  </div>
+
+  <div class="nosotros__ejes">
+    <article class="nosotros__eje">
+      <p class="nosotros__eje-tag">NUESTRA MISIÓN</p>
+      <p>Plasmar de forma fidedigna el corazón de los creativos en el resultado final de su obra.</p>
+    </article>
+    <article class="nosotros__eje">
+      <p class="nosotros__eje-tag">NUESTRA VISIÓN</p>
+      <p>Transformar la forma en que la literatura se presenta y se consume en contextos actuales: no buscamos solemnidad ni distancia, sino mostrar los libros como una experiencia cultural viva, próxima y con la fuerza para emocionar a todo quien se atreva a aproximarse a ellos.</p>
+    </article>
+  </div>
 
   <div class="bios">
     <article class="bio">
@@ -393,40 +480,52 @@
   </div>
 </section>
 
-<!-- ================= HISTORIAS URBANAS ================= -->
+<!-- ================= SEMÁFORO ================= -->
 <section class="historias" id="historias">
   <header class="seccion-head seccion-head--claro">
-    <p class="kicker kicker--amarillo"><svg class="kicker__d" aria-hidden="true"><use href="#diamante"/></svg> ESPACIO ABIERTO</p>
-    <h2>Historias urbanas</h2>
-    <p class="seccion-head__bajada">Un muro abierto para cuentos cortos con calle. Si tu historia respira ciudad, este es su primer muro.</p>
+    <p class="kicker kicker--amarillo"><svg class="kicker__d" aria-hidden="true"><use href="#diamante"/></svg> ANTOLOGÍA ONLINE</p>
+    <h2>Semáforo</h2>
+    <div class="historias__intro">
+      <p>El “Semáforo” habita en aquella esquina donde los creativos se encuentran.</p>
+      <p>Esta es nuestra antología online de convocatoria abierta que se actualiza todos los viernes. La luz verde aborda los textos narrativos, la luz roja abraza la poesía y la luz amarilla responde a los ensayos/crónicas. ¡Buscamos obras que hablen de ciudades existentes o ficticias, sus calles y lo que se experimenta en ellas!</p>
+    </div>
   </header>
 
   <ol class="historias__pasos">
     <li>
-      <h3>Envías tu cuento</h3>
-      <p>Un cuento corto, por el formulario de contacto. Sin requisitos raros ni formularios eternos.</p>
+      <h3>Envías tu obra</h3>
+      <p>Rellena el formulario con la información correspondiente sobre tu escrito.</p>
     </li>
     <li>
-      <h3>Lo leemos completo</h3>
-      <p>El equipo lo lee de principio a fin. Sin filtros automáticos, sin algoritmos decidiendo por nosotros.</p>
+      <h3>Recepción y contacto</h3>
+      <p>Nuestro equipo recepciona tu escrito y lo lee de principio a fin. Si encaja con nuestra línea editorial te contactamos para formalizar su publicación.</p>
     </li>
     <li>
-      <h3>Se publica aquí</h3>
-      <p>Si encaja con el espíritu urbano del sello, aparece en este índice con número de historia, tu nombre y el año.</p>
+      <h3>Lo publicamos en “Semáforo”</h3>
+      <p>Llegado el momento, tu obra será publicada un viernes en nuestra antología online.</p>
     </li>
   </ol>
 
+  <aside class="historias__nota">
+    <p><strong>Nota:</strong> Solo recibimos obras completas, originales e inéditas de cualquier país. <strong>NO aceptamos IA.</strong></p>
+  </aside>
+
   <div class="historias__indice">
-    <p class="historias__indice-titulo">ÍNDICE — <span class="txt-amarillo">VISTA PREVIA</span> (formato de ejemplo, aún sin historias publicadas)</p>
+    <p class="historias__indice-titulo">ÍNDICE — <span class="txt-amarillo">VISTA PREVIA</span> (formato de ejemplo, aún sin obras publicadas)</p>
+    <p class="historias__leyenda" aria-label="Leyenda de luces">
+      <span><i class="hist-luz hist-luz--verde" aria-hidden="true"></i> Narrativa</span>
+      <span><i class="hist-luz hist-luz--roja" aria-hidden="true"></i> Poesía</span>
+      <span><i class="hist-luz hist-luz--amarilla" aria-hidden="true"></i> Ensayo / crónica</span>
+    </p>
     <ul>
-      <li><span class="hist-num">N.° 001</span><span class="hist-titulo">Título de la primera historia</span><span class="hist-autor">Autor/a</span><span class="hist-anio">2026</span></li>
-      <li><span class="hist-num">N.° 002</span><span class="hist-titulo">Título de la segunda historia</span><span class="hist-autor">Autor/a</span><span class="hist-anio">2026</span></li>
-      <li><span class="hist-num">N.° 003</span><span class="hist-titulo">Podría ser la tuya</span><span class="hist-autor">Tu nombre</span><span class="hist-anio">2026</span></li>
+      <li><i class="hist-luz hist-luz--verde" aria-label="Narrativa"></i><span class="hist-num">N.° 001</span><span class="hist-titulo">Título de la primera historia</span><span class="hist-autor">Autor/a</span><span class="hist-anio">2026</span></li>
+      <li><i class="hist-luz hist-luz--roja" aria-label="Poesía"></i><span class="hist-num">N.° 002</span><span class="hist-titulo">Título de la segunda historia</span><span class="hist-autor">Autor/a</span><span class="hist-anio">2026</span></li>
+      <li><i class="hist-luz hist-luz--amarilla" aria-label="Ensayo / crónica"></i><span class="hist-num">N.° 003</span><span class="hist-titulo">Podría ser la tuya</span><span class="hist-autor">Tu nombre</span><span class="hist-anio">2026</span></li>
     </ul>
   </div>
 
   <div class="historias__cta">
-    <a class="btn btn--amarillo" href="#contacto">Envía tu historia</a>
+    <a class="btn btn--amarillo" href="#contacto">Envía tu obra</a>
   </div>
 </section>
 
@@ -454,7 +553,7 @@
           <option value="">Elige un motivo</option>
           <option>Quiero publicar mi manuscrito</option>
           <option>Cotizar un servicio independiente</option>
-          <option>Enviar una historia para Historias Urbanas</option>
+          <option>Enviar una obra para SEMÁFORO</option>
           <option>Otra consulta</option>
         </select>
       </div>
