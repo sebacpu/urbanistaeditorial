@@ -745,7 +745,7 @@ a { color: var(--azul); }
 
 .nosotros__ejes {
   max-width: var(--ancho-max);
-  margin: 0 auto 3.4rem;
+  margin: 0 auto 2.4rem;
   padding: 0 1.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -766,25 +766,17 @@ a { color: var(--azul); }
   color: var(--azul);
 }
 
-.bios {
+.nosotros__ciudad {
   max-width: var(--ancho-max);
   margin: 0 auto;
   padding: 0 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.6rem;
 }
-.bio {
-  border-top: var(--borde-grueso);
-  padding-top: 1.2rem;
-  display: grid; gap: .5rem;
+.nosotros__ciudad svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
 }
-.bio__rol {
-  font-family: var(--f-mono); font-weight: 600;
-  font-size: .75rem; letter-spacing: .3em;
-  color: var(--azul);
-}
-.bio p:not(.bio__rol) { max-width: 36rem; }
 
 /* ============================================================
    HISTORIAS URBANAS
@@ -1003,7 +995,7 @@ a { color: var(--azul); }
   .ruta__linea { grid-template-columns: 1fr 1fr; }
   .historias__pasos, .sello__grilla { grid-template-columns: 1fr; }
   .ruta__linea::before { display: none; }
-  .bios, .nosotros__ejes { grid-template-columns: 1fr; }
+  .nosotros__ejes { grid-template-columns: 1fr; }
   .contacto__grilla { grid-template-columns: 1fr; }
 
   /* libro: apilar páginas verticalmente */
