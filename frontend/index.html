@@ -9,8 +9,8 @@
   <meta property="og:description" content="La ciudad tiene forma de libro. Urbanista es una editorial chilena independiente de narrativa urbana, ficción contemporánea y poesía de calle.">
   <meta property="og:type" content="website">
 
-  <!-- Favicon: diamante del isotipo (reemplazar por el asset oficial cuando esté exportado) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='18' y='18' width='64' height='64' rx='14' transform='rotate(45 50 50)' fill='%23FFCC00' stroke='%230B0C0E' stroke-width='8'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="img/isotipo.png">
+  <link rel="apple-touch-icon" href="img/isotipo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,44 +22,9 @@
 
 <!-- ============================================================
      DEFS SVG COMPARTIDAS
-     NOTA PARA EL CLIENTE: el isotipo de abajo es una recreación
-     vectorial de trabajo. Reemplazar por el SVG oficial exportado
-     desde el archivo maestro cuando esté disponible.
 ============================================================ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <!-- Isotipo: mano caminando sobre paso de cebra, rombo señalética -->
-    <symbol id="isotipo" viewBox="0 0 100 100">
-      <rect x="17" y="17" width="66" height="66" rx="13" transform="rotate(45 50 50)" fill="#FFCC00" stroke="#0B0C0E" stroke-width="6.5"/>
-      <clipPath id="iso-clip"><rect x="21.5" y="21.5" width="57" height="57" rx="10" transform="rotate(45 50 50)"/></clipPath>
-      <g clip-path="url(#iso-clip)">
-        <!-- paso de cebra en perspectiva -->
-        <polygon points="24,58 36,56.5 33,82 18,78" fill="#fff" stroke="#0B0C0E" stroke-width="3.2"/>
-        <polygon points="43,56 57,56 59,84 41,84" fill="#fff" stroke="#0B0C0E" stroke-width="3.2"/>
-        <polygon points="64,56.5 76,58 82,78 67,82" fill="#fff" stroke="#0B0C0E" stroke-width="3.2"/>
-        <!-- mano con dedos caminando -->
-        <g fill="#fff" stroke="#0B0C0E" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
-          <path d="M46 4 L61 4
-                   C 62.5 16, 61.5 26, 58.5 33
-                   C 64 36, 66 43, 62 48
-                   L 59 50
-                   C 60 56, 60 62, 59.5 66
-                   C 59 69.5, 53.5 69.5, 53.5 65.5
-                   C 53.8 60, 54 55, 54 51.5
-                   C 52 52.5, 50 52.5, 48.5 51.5
-                   C 47.5 55, 46 60, 44 64
-                   C 42.5 68, 37.5 66.5, 38.5 62.5
-                   C 40 57, 41 52, 41.5 48.5
-                   C 37 46.5, 35 41, 36.5 36
-                   C 33 36.5, 30.5 33.5, 32.5 30.5
-                   C 30 29.5, 30.5 25.5, 34 26
-                   C 35.5 21, 39 14, 41.5 9.5
-                   C 43 7, 44.5 5, 46 4 Z"/>
-          <path d="M37 35.5 C 39 34, 41.5 33.5, 44 34.5" fill="none" stroke-width="2.2"/>
-        </g>
-      </g>
-    </symbol>
-
     <!-- Marcador de sección: diamante pequeño -->
     <symbol id="diamante" viewBox="0 0 24 24">
       <rect x="5" y="5" width="14" height="14" rx="2.5" transform="rotate(45 12 12)" fill="currentColor"/>
@@ -132,7 +97,7 @@
 <!-- ================= HEADER ================= -->
 <header class="site-header" id="top">
   <a class="brand" href="#home" aria-label="Urbanista Editorial — inicio">
-    <svg class="brand__iso" aria-hidden="true"><use href="#isotipo"/></svg>
+    <img class="brand__iso" src="img/isotipo.png" alt="" width="52" height="52">
     <span class="brand__word">Urbanista<small>Editorial</small></span>
   </a>
 
@@ -704,7 +669,7 @@
           <dd><a href="#" rel="noopener">Instagram</a> · <a href="#" rel="noopener">TikTok</a> · <a href="#" rel="noopener">X</a></dd>
         </div>
       </dl>
-      <svg class="contacto__iso" aria-hidden="true"><use href="#isotipo"/></svg>
+      <img class="contacto__iso" src="img/isotipo.png" alt="" width="74" height="74">
     </aside>
   </div>
 </section>
