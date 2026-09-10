@@ -68,6 +68,8 @@ a { color: var(--azul); }
 
 .txt-amarillo { color: var(--amarillo); }
 
+strong { font-weight: 700; }
+
 /* ---------- kickers y cabeceras de sección ---------- */
 
 .kicker {
@@ -191,7 +193,7 @@ a { color: var(--azul); }
   align-items: center;
 }
 
-.hero__copy { display: grid; gap: 1.4rem; justify-items: start; }
+.hero__copy { display: grid; gap: 1.4rem; }
 
 .hero__title {
   font-size: clamp(3.4rem, 7.5vw, 6.2rem);
@@ -210,7 +212,13 @@ a { color: var(--azul); }
   transform: skewX(-8deg);
 }
 
-.hero__bajada { max-width: 32rem; }
+.hero__bajada {
+  max-width: none;
+  width: 100%;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
 
 .hero__ctas { display: flex; flex-wrap: wrap; gap: 1rem; }
 
@@ -534,10 +542,15 @@ a { color: var(--azul); }
 .ruta { padding: 5.5rem 0 5rem; }
 
 .ruta__intro {
-  max-width: 46rem;
+  max-width: 58rem;
   display: grid;
   gap: .85rem;
   font-size: 1.05rem;
+}
+.ruta__intro p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .ruta__linea {
@@ -734,17 +747,19 @@ a { color: var(--azul); }
 .nosotros { padding: 5.5rem 0 5rem; }
 
 .nosotros__intro {
-  max-width: 46rem;
+  max-width: 58rem;
   margin: 0 auto 2.6rem;
   padding: 0 1.5rem;
   display: grid;
   gap: .9rem;
 }
+.nosotros__intro p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
 .nosotros__lead {
-  font-family: var(--f-display);
-  font-size: clamp(1.55rem, 2.8vw, 2.15rem);
-  line-height: 1.1;
-  letter-spacing: .01em;
+  font-size: 1.2rem;
 }
 
 .nosotros__ejes {
@@ -768,6 +783,11 @@ a { color: var(--azul); }
   font-family: var(--f-mono); font-weight: 600;
   font-size: .75rem; letter-spacing: .22em;
   color: var(--azul);
+}
+.nosotros__eje p:not(.nosotros__eje-tag) {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .nosotros__ciudad {
@@ -938,16 +958,6 @@ a { color: var(--azul); }
   cursor: pointer;
 }
 
-.contacto__manuscrito {
-  display: grid;
-  gap: 1.2rem;
-  width: 100%;
-  padding: 1.1rem 1.15rem 1.2rem;
-  border: 3px dashed var(--tinta);
-  background: color-mix(in srgb, var(--amarillo) 18%, var(--papel));
-}
-.contacto__manuscrito[hidden] { display: none; }
-
 .contacto__datos {
   border: var(--borde-grueso);
   background: var(--blanco);
@@ -1095,6 +1105,13 @@ a { color: var(--azul); }
   .nav-cta-item { margin-top: .6rem; }
 
   .hero { padding-top: 2.6rem; }
+  .hero__bajada,
+  .ruta__intro p,
+  .nosotros__intro p,
+  .nosotros__eje p:not(.nosotros__eje-tag) {
+    text-align: left;
+    hyphens: none;
+  }
   .ruta__linea { grid-template-columns: 1fr; }
   .historias__indice li {
     grid-template-columns: 14px 8ch 1fr;
