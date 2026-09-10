@@ -213,11 +213,12 @@ strong { font-weight: 700; }
 }
 
 .hero__bajada {
-  max-width: none;
+  max-width: 38rem;
   width: 100%;
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
+  text-align: left;
+  text-wrap: pretty;
+  hyphens: none;
+  -webkit-hyphens: none;
 }
 
 .hero__ctas { display: flex; flex-wrap: wrap; gap: 1rem; }
@@ -552,8 +553,8 @@ strong { font-weight: 700; }
 }
 .ruta__intro p {
   text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
+  hyphens: none;
+  -webkit-hyphens: none;
 }
 
 .ruta__linea {
@@ -758,8 +759,8 @@ strong { font-weight: 700; }
 }
 .nosotros__intro p {
   text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
+  hyphens: none;
+  -webkit-hyphens: none;
 }
 .nosotros__lead {
   font-size: 1.2rem;
@@ -789,8 +790,8 @@ strong { font-weight: 700; }
 }
 .nosotros__eje p:not(.nosotros__eje-tag) {
   text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
+  hyphens: none;
+  -webkit-hyphens: none;
 }
 
 .nosotros__ciudad {
