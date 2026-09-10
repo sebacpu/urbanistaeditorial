@@ -575,8 +575,12 @@
         <textarea id="c-obra-intro" rows="5" placeholder="Género, extensión aproximada y de qué trata tu manuscrito."></textarea>
       </div>
       <div class="campo campo--archivo">
-        <label for="c-obra">Adjunta tu obra</label>
-        <input id="c-obra" type="file" accept=".pdf,.doc,.docx,.odt,.rtf,.txt,application/pdf">
+        <span class="campo__etiqueta" id="c-obra-label">Adjunta tu obra</span>
+        <label class="archivo" for="c-obra">
+          <input id="c-obra" class="archivo__input" type="file" accept=".pdf,.doc,.docx,.odt,.rtf,.txt,application/pdf" aria-labelledby="c-obra-label">
+          <span class="archivo__btn">Elegir archivo</span>
+          <span class="archivo__nombre" data-archivo-nombre>Ningún archivo seleccionado</span>
+        </label>
         <span class="campo__ayuda">PDF, Word u OpenDocument.</span>
       </div>
       <div class="campo">

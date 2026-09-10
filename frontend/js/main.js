@@ -375,6 +375,19 @@
   }
 
   /* ==========================================================
+     CONTACTO: nombre del archivo adjunto
+  ========================================================== */
+  const archivo = document.getElementById('c-obra');
+  const archivoNombre = document.querySelector('[data-archivo-nombre]');
+  if (archivo && archivoNombre) {
+    archivo.addEventListener('change', () => {
+      archivoNombre.textContent = archivo.files[0]
+        ? archivo.files[0].name
+        : 'Ningún archivo seleccionado';
+    });
+  }
+
+  /* ==========================================================
      FORMULARIOS DEMO (sin backend todavía)
      TODO: conectar a Formspree / Mailchimp / correo real.
   ========================================================== */

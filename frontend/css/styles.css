@@ -943,11 +943,12 @@ strong { font-weight: 700; }
 .contacto__form { display: grid; gap: 1.2rem; justify-items: start; }
 
 .campo { display: grid; gap: .4rem; width: 100%; }
-.campo label {
+.campo label,
+.campo__etiqueta {
   font-family: var(--f-mono); font-weight: 600;
   font-size: .75rem; letter-spacing: .25em;
 }
-.campo input, .campo select, .campo textarea {
+.campo input:not([type="file"]), .campo select, .campo textarea {
   font-family: var(--f-cuerpo);
   font-size: 1rem;
   padding: .75rem .9rem;
@@ -963,11 +964,54 @@ strong { font-weight: 700; }
   letter-spacing: .04em;
   opacity: .55;
 }
-.campo input[type="file"] {
-  font-family: var(--f-mono);
-  font-size: .85rem;
+
+.archivo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: .4rem .55rem;
+  border: var(--borde-grueso);
   background: var(--papel);
+  box-shadow: 4px 4px 0 var(--tinta);
   cursor: pointer;
+}
+.archivo:hover { background: var(--blanco); }
+.archivo__input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.archivo__btn {
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: var(--amarillo);
+  color: var(--tinta);
+  border: var(--borde-grueso);
+  padding: .5rem 1.15rem .38rem;
+  pointer-events: none;
+  flex: none;
+}
+.archivo__nombre {
+  font-family: var(--f-mono);
+  font-size: .78rem;
+  letter-spacing: .03em;
+  opacity: .65;
+  pointer-events: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .contacto__datos {
