@@ -242,7 +242,7 @@ strong { font-weight: 700; }
   transform: rotate(1.2deg);
 }
 
-.galeria__pila { position: relative; aspect-ratio: 640 / 520; overflow: hidden; }
+.galeria__pila { position: relative; aspect-ratio: 520 / 425; overflow: hidden; }
 
 .galeria__slide {
   position: absolute; inset: 0;
@@ -252,7 +252,10 @@ strong { font-weight: 700; }
 }
 .galeria__slide.is-activa { opacity: 1; pointer-events: auto; }
 
-.galeria__art { display: block; width: 100%; height: 100%; }
+.galeria__art {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover;
+}
 
 .galeria__pie {
   position: absolute; left: 0; bottom: 0;
