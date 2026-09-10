@@ -612,18 +612,19 @@ strong { font-weight: 700; }
 .ruta__aviso {
   max-width: var(--ancho-max);
   margin: 2.8rem auto 0;
-  padding: 1.25rem 1.4rem 1.2rem;
+  padding: 1.35rem 1.5rem 1.35rem;
   width: calc(100% - 3rem);
   display: grid;
-  gap: .5rem;
+  gap: .45rem;
   background: var(--blanco);
   border: var(--borde-grueso);
   box-shadow: 5px 5px 0 var(--tinta);
+  font-family: var(--f-mono);
 }
 .ruta__aviso::before {
   content: "";
   height: 12px;
-  margin: -1.25rem -1.4rem .85rem;
+  margin: -1.35rem -1.5rem .95rem;
   background: repeating-linear-gradient(
     -45deg,
     var(--tinta) 0 9px,
@@ -632,10 +633,17 @@ strong { font-weight: 700; }
   border-bottom: var(--borde-grueso);
 }
 .ruta__aviso-tag {
-  font-family: var(--f-mono); font-weight: 600;
-  font-size: .78rem; letter-spacing: .22em;
+  font-weight: 600;
+  font-size: .85rem;
+  letter-spacing: .22em;
 }
-.ruta__aviso p:last-child { max-width: 52rem; }
+.ruta__aviso p:not(.ruta__aviso-tag) {
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: .01em;
+  max-width: none;
+}
 
 .ruta__cta {
   max-width: var(--ancho-max);
