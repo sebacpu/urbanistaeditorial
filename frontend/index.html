@@ -636,17 +636,38 @@
         <label for="c-motivo">Motivo</label>
         <select id="c-motivo" required>
           <option value="">Elige un motivo</option>
-          <option>Quiero publicar mi manuscrito</option>
-          <option>Cotizar un servicio independiente</option>
-          <option>Enviar una obra para SEMÁFORO</option>
-          <option>Otra consulta</option>
+          <option value="manuscrito">Quiero publicar mi manuscrito</option>
+          <option value="servicio">Cotizar un servicio independiente</option>
+          <option value="semaforo">Enviar una obra para SEMÁFORO</option>
+          <option value="otra">Otra consulta</option>
         </select>
       </div>
+
+      <div class="contacto__manuscrito" data-manuscrito-fields hidden>
+        <div class="campo">
+          <label for="c-seudonimo">Nombre o pseudónimo</label>
+          <input id="c-seudonimo" type="text" autocomplete="nickname" disabled>
+        </div>
+        <div class="campo">
+          <label for="c-presentacion">Presentación personal breve</label>
+          <textarea id="c-presentacion" rows="4" disabled placeholder="Quién eres, de dónde escribes y qué te mueve a publicar."></textarea>
+        </div>
+        <div class="campo">
+          <label for="c-obra-intro">Breve presentación de la obra</label>
+          <textarea id="c-obra-intro" rows="5" disabled placeholder="Género, extensión aproximada y de qué trata tu manuscrito."></textarea>
+        </div>
+        <div class="campo campo--archivo">
+          <label for="c-obra">Adjunta tu obra</label>
+          <input id="c-obra" type="file" accept=".pdf,.doc,.docx,.odt,.rtf,.txt,application/pdf" disabled>
+          <span class="campo__ayuda">PDF, Word u OpenDocument.</span>
+        </div>
+      </div>
+
       <div class="campo">
         <label for="c-mensaje">Mensaje</label>
-        <textarea id="c-mensaje" rows="6" required placeholder="Cuéntanos de tu proyecto. Si es un manuscrito: género, extensión aproximada y en qué etapa está."></textarea>
+        <textarea id="c-mensaje" rows="6" required placeholder="Cuéntanos de tu proyecto o consulta."></textarea>
       </div>
-      <button class="btn btn--primario" type="submit">Enviar mensaje</button>
+      <button class="btn btn--primario" type="submit">Enviar correo</button>
       <p class="nota-demo" data-demo-msg aria-live="polite"></p>
     </form>
 
@@ -654,19 +675,19 @@
       <dl>
         <div>
           <dt>CORREO</dt>
-          <dd><a href="mailto:contacto@urbanistaeditorial.cl">contacto@urbanistaeditorial.cl</a></dd>
+          <dd><a href="mailto:contacto@urbanistaeditorial.com">contacto@urbanistaeditorial.com</a></dd>
         </div>
         <div>
           <dt>CIUDAD</dt>
-          <dd>Santiago, Chile</dd>
+          <dd>Región Metropolitana de Santiago, Chile</dd>
         </div>
         <div>
           <dt>RESPUESTA</dt>
-          <dd>Dentro de 5 días hábiles. Los manuscritos toman más: los leemos de verdad.</dd>
+          <dd>Dentro de 5 a 10 días hábiles. Los manuscritos pueden tomar más tiempo, todo acorde a su extensión.</dd>
         </div>
         <div>
           <dt>REDES</dt>
-          <dd><a href="#" rel="noopener">Instagram</a> · <a href="#" rel="noopener">TikTok</a> · <a href="#" rel="noopener">X</a></dd>
+          <dd><a href="#" rel="noopener">Instagram</a> · <a href="#" rel="noopener">TikTok</a> · <a href="#" rel="noopener">LinkedIn</a></dd>
         </div>
       </dl>
       <img class="contacto__iso" src="img/isotipo.png" alt="" width="74" height="74">
@@ -681,6 +702,7 @@
   <p class="site-footer__marca">URBANISTA EDITORIAL</p>
   <p class="site-footer__meta">Sello independiente · Santiago de Chile · © 2026</p>
   <p class="site-footer__firma">Hecho a mano, como los buenos libros.</p>
+  <p class="site-footer__edvance"><a href="https://edvance.cl" target="_blank" rel="noopener noreferrer">Powered by Edvance</a></p>
 </footer>
 
 <script src="js/main.js"></script>

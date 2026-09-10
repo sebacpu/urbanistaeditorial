@@ -925,6 +925,28 @@ a { color: var(--azul); }
   width: 100%;
 }
 .campo textarea { resize: vertical; }
+.campo__ayuda {
+  font-family: var(--f-mono);
+  font-size: .72rem;
+  letter-spacing: .04em;
+  opacity: .55;
+}
+.campo input[type="file"] {
+  font-family: var(--f-mono);
+  font-size: .85rem;
+  background: var(--papel);
+  cursor: pointer;
+}
+
+.contacto__manuscrito {
+  display: grid;
+  gap: 1.2rem;
+  width: 100%;
+  padding: 1.1rem 1.15rem 1.2rem;
+  border: 3px dashed var(--tinta);
+  background: color-mix(in srgb, var(--amarillo) 18%, var(--papel));
+}
+.contacto__manuscrito[hidden] { display: none; }
 
 .contacto__datos {
   border: var(--borde-grueso);
@@ -940,7 +962,7 @@ a { color: var(--azul); }
   color: var(--azul);
   margin-bottom: .25rem;
 }
-.contacto__datos dd { max-width: 30ch; }
+.contacto__datos dd { max-width: 36ch; }
 .contacto__iso {
   width: 74px; height: 74px;
   margin-top: 1.8rem;
@@ -982,6 +1004,20 @@ a { color: var(--azul); }
   font-style: italic; opacity: .45;
   margin-top: 1.6rem; font-size: .9rem;
 }
+.site-footer__edvance {
+  margin-top: 1.5rem;
+  font-family: var(--f-mono);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.site-footer__edvance a {
+  color: var(--amarillo);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.site-footer__edvance a:hover { border-bottom-color: var(--amarillo); }
 
 /* ============================================================
    RESPONSIVE

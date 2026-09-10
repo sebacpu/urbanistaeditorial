@@ -375,6 +375,26 @@
   }
 
   /* ==========================================================
+     CONTACTO: campos extra al publicar manuscrito
+  ========================================================== */
+  const motivo = document.getElementById('c-motivo');
+  const manuscritoFields = document.querySelector('[data-manuscrito-fields]');
+
+  if (motivo && manuscritoFields) {
+    const extras = manuscritoFields.querySelectorAll('input, textarea');
+    const syncManuscrito = () => {
+      const show = motivo.value === 'manuscrito';
+      manuscritoFields.hidden = !show;
+      extras.forEach((el) => {
+        el.disabled = !show;
+        el.required = show;
+      });
+    };
+    motivo.addEventListener('change', syncManuscrito);
+    syncManuscrito();
+  }
+
+  /* ==========================================================
      FORMULARIOS DEMO (sin backend todavía)
      TODO: conectar a Formspree / Mailchimp / correo real.
   ========================================================== */
