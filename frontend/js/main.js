@@ -269,10 +269,38 @@
   }
 
   /* ==========================================================
-     CONTACTO: nombre del archivo adjunto
+     CONTACTO: campos de SEMÁFORO y nombre del archivo
   ========================================================== */
+  const motivo = document.getElementById('c-motivo');
+  const semaforoCampos = document.querySelector('[data-semaforo-campos]');
   const archivo = document.getElementById('c-obra');
   const archivoNombre = document.querySelector('[data-archivo-nombre]');
+
+  function syncSemaforo() {
+    if (!motivo || !semaforoCampos) return;
+    const abierto = motivo.value === 'semaforo';
+    semaforoCampos.hidden = !abierto;
+    semaforoCampos.querySelectorAll('input, textarea, select').forEach((el) => {
+      el.disabled = !abierto;
+      el.required = abierto;
+    });
+  }
+
+  if (motivo) {
+    const params = new URLSearchParams(location.search);
+    if (params.get('motivo')) motivo.value = params.get('motivo');
+    motivo.addEventListener('change', syncSemaforo);
+    syncSemaforo();
+  }
+
+  document.querySelectorAll('[data-motivo]').forEach((enlace) => {
+    enlace.addEventListener('click', () => {
+      if (!motivo) return;
+      motivo.value = enlace.getAttribute('data-motivo');
+      syncSemaforo();
+    });
+  });
+
   if (archivo && archivoNombre) {
     archivo.addEventListener('change', () => {
       archivoNombre.textContent = archivo.files[0]

@@ -13,6 +13,7 @@
   --verde: #1BD15A;
 
   --f-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --f-recorte: 'Lilita One', 'Bebas Neue', sans-serif;
   --f-cuerpo: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --f-mono: 'IBM Plex Mono', 'Courier New', monospace;
 
@@ -105,11 +106,16 @@ strong { font-weight: 700; }
   padding: .7rem 1.6rem .55rem;
   border: var(--borde-grueso);
   cursor: pointer;
-  transition: transform .12s ease, box-shadow .12s ease;
+  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease;
   box-shadow: 4px 4px 0 var(--tinta);
   background: var(--blanco);
   color: var(--tinta);
 }
+a.btn:link,
+a.btn:visited,
+a.btn:hover,
+a.btn:focus,
+a.btn:active { text-decoration: none; }
 .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--tinta); }
 .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--tinta); }
 
@@ -377,6 +383,8 @@ strong { font-weight: 700; }
 .libro__pagina--izq {
   border-right-width: 1px;
   border-radius: 8px 0 0 8px;
+  transform-style: flat;
+  isolation: isolate;
   background:
     linear-gradient(90deg, transparent 0 92%, rgba(11,12,14,.14) 100%),
     repeating-linear-gradient(0deg, transparent 0 30px, rgba(11,12,14,.035) 30px 31px),
@@ -398,24 +406,62 @@ strong { font-weight: 700; }
   z-index: 6;
 }
 
-/* página izquierda: contenido */
+/* página izquierda: recortes de papel */
 .pagina-info {
   height: 100%;
-  padding: 2.4rem 2.6rem;
-  display: grid;
-  gap: 1rem;
-  align-content: start;
-  justify-items: start;
+  min-height: 540px;
+  padding: 1.7rem 1.45rem 1.55rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.1rem;
+  align-items: flex-start;
   color: var(--tinta);
 }
 .pagina-info__codigo {
   font-family: var(--f-mono); font-weight: 600;
-  font-size: .78rem; letter-spacing: .12em;
+  font-size: .72rem; letter-spacing: .14em;
   background: var(--tinta); color: var(--amarillo);
-  padding: .35rem .8rem;
+  padding: .4rem .85rem;
+  transform: rotate(-2.2deg);
+  box-shadow: 3px 3px 0 var(--amarillo);
 }
-.pagina-info__titulo { font-size: clamp(1.9rem, 3.4vw, 2.7rem); }
-.pagina-info__desc { max-width: 26rem; }
+.pagina-info__titulo {
+  font-family: var(--f-recorte);
+  font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+  line-height: .92;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  background: var(--blanco);
+  border: 2.5px solid var(--tinta);
+  padding: .6rem .75rem .45rem;
+  transform: rotate(-.9deg);
+  box-shadow: 5px 5px 0 var(--tinta);
+  width: 100%;
+  max-width: none;
+}
+.pagina-info__desc {
+  max-width: none;
+  width: 100%;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  background: color-mix(in srgb, var(--blanco) 78%, var(--papel));
+  border: 2px dashed rgba(11, 12, 14, .35);
+  padding: .95rem 1rem .9rem;
+  transform: rotate(.45deg);
+}
+.pagina-info .btn {
+  margin-top: auto;
+  transform: none;
+  box-shadow: 4px 4px 0 var(--tinta);
+  transition: background-color .15s ease, filter .15s ease;
+}
+.pagina-info .btn:hover,
+.pagina-info .btn:active {
+  transform: none;
+  box-shadow: 4px 4px 0 var(--tinta);
+  filter: brightness(1.06);
+}
 
 /* transición de contenido al pasar página */
 .pagina-info, .popup-escenario { transition: opacity .25s ease; }
@@ -638,45 +684,6 @@ strong { font-weight: 700; }
   max-width: var(--ancho-max);
   margin: 1.8rem auto 0;
   padding: 0 1.5rem;
-}
-
-/* ============================================================
-   SELLO
-============================================================ */
-
-.sello { padding: 4.5rem 0 5rem; }
-
-.sello__grilla {
-  max-width: var(--ancho-max);
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.6rem;
-}
-
-.sello__carta {
-  border: var(--borde-grueso);
-  min-height: 220px;
-  display: grid;
-  align-content: space-between;
-  padding: 1.4rem;
-  background:
-    repeating-linear-gradient(-45deg, transparent 0 14px, rgba(11,12,14,.05) 14px 28px),
-    var(--blanco);
-}
-.sello__carta:nth-child(2) { transform: rotate(.8deg); }
-.sello__carta:nth-child(3) { transform: rotate(-.7deg); }
-
-.sello__num {
-  font-family: var(--f-mono); font-weight: 600;
-  font-size: .85rem; letter-spacing: .25em;
-}
-.sello__estado {
-  font-family: var(--f-display);
-  font-size: 2rem;
-  color: transparent;
-  -webkit-text-stroke: 1.6px var(--tinta);
 }
 
 /* ============================================================
@@ -931,6 +938,13 @@ strong { font-weight: 700; }
 
 .contacto__form { display: grid; gap: 1.2rem; justify-items: start; }
 
+.contacto__semaforo {
+  display: grid;
+  gap: 1.2rem;
+  width: 100%;
+}
+.contacto__semaforo[hidden] { display: none; }
+
 .campo { display: grid; gap: .4rem; width: 100%; }
 .campo label,
 .campo__etiqueta {
@@ -1090,7 +1104,7 @@ strong { font-weight: 700; }
   .galeria__flecha--next { right: 8px; }
 
   .ruta__linea { grid-template-columns: 1fr 1fr; }
-  .historias__pasos, .sello__grilla { grid-template-columns: 1fr; }
+  .historias__pasos { grid-template-columns: 1fr; }
   .ruta__linea::before { display: none; }
   .nosotros__ejes { grid-template-columns: 1fr; }
   .contacto__grilla { grid-template-columns: 1fr; }
@@ -1119,7 +1133,8 @@ strong { font-weight: 700; }
   }
   .libro__hoja { display: none !important; }
   .popup-escenario { min-height: 340px; }
-  .pagina-info { padding: 1.8rem 1.5rem; }
+  .pagina-info { padding: 1.5rem 1.2rem; min-height: 0; }
+  .pagina-info__titulo { font-size: clamp(1.9rem, 8vw, 2.6rem); }
 }
 
 @media (max-width: 780px) {
@@ -1182,6 +1197,12 @@ strong { font-weight: 700; }
     transform: none;
     transition: opacity .3s ease;
     transition-delay: 0s;
+  }
+
+  .pagina-info__titulo,
+  .pagina-info__codigo,
+  .pagina-info__desc {
+    transform: none;
   }
 
   .tienda__cinta-texto { animation: none; }

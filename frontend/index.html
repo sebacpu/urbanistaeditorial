@@ -14,7 +14,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Lilita+One&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -191,7 +191,7 @@
             <p class="pagina-info__codigo" data-info-codigo>SERVICIO #01</p>
             <h3 class="pagina-info__titulo" data-info-titulo>Informe de lectura</h3>
             <p class="pagina-info__desc" data-info-desc></p>
-            <a class="btn btn--linea" href="#contacto" data-info-cta>Cotizar este servicio</a>
+            <a class="btn btn--amarillo" href="#contacto" data-info-cta>Cotizar este servicio</a>
           </div>
         </div>
 
@@ -279,30 +279,6 @@
 
   <div class="ruta__cta">
     <a class="btn btn--primario" href="#contacto">Envía tu manuscrito</a>
-  </div>
-</section>
-
-<!-- ================= SELLO ================= -->
-<section class="sello" id="sello">
-  <header class="seccion-head">
-    <p class="kicker"><svg class="kicker__d" aria-hidden="true"><use href="#diamante"/></svg> CATÁLOGO</p>
-    <h2>Sello</h2>
-    <p class="seccion-head__bajada">Estamos armando las primeras colecciones del catálogo. Los nombres se anuncian cuando estén listos — no antes.</p>
-  </header>
-
-  <div class="sello__grilla">
-    <article class="sello__carta">
-      <p class="sello__num">SELLO 01</p>
-      <p class="sello__estado">POR ANUNCIAR</p>
-    </article>
-    <article class="sello__carta">
-      <p class="sello__num">SELLO 02</p>
-      <p class="sello__estado">POR ANUNCIAR</p>
-    </article>
-    <article class="sello__carta">
-      <p class="sello__num">SELLO 03</p>
-      <p class="sello__estado">POR ANUNCIAR</p>
-    </article>
   </div>
 </section>
 
@@ -530,7 +506,7 @@
   </div>
 
   <div class="historias__cta">
-    <a class="btn btn--amarillo" href="#contacto">Envía tu obra</a>
+    <a class="btn btn--amarillo" href="#contacto" data-motivo="semaforo">Envía tu obra</a>
   </div>
 </section>
 
@@ -562,26 +538,28 @@
           <option value="otra">Otra consulta</option>
         </select>
       </div>
-      <div class="campo">
-        <label for="c-seudonimo">Nombre o pseudónimo</label>
-        <input id="c-seudonimo" type="text" autocomplete="nickname">
-      </div>
-      <div class="campo">
-        <label for="c-presentacion">Presentación personal breve</label>
-        <textarea id="c-presentacion" rows="4" placeholder="Quién eres, de dónde escribes y qué te mueve a publicar."></textarea>
-      </div>
-      <div class="campo">
-        <label for="c-obra-intro">Breve presentación de la obra</label>
-        <textarea id="c-obra-intro" rows="5" placeholder="Género, extensión aproximada y de qué trata tu manuscrito."></textarea>
-      </div>
-      <div class="campo campo--archivo">
-        <span class="campo__etiqueta" id="c-obra-label">Adjunta tu obra</span>
-        <label class="archivo" for="c-obra">
-          <input id="c-obra" class="archivo__input" type="file" accept=".pdf,.doc,.docx,.odt,.rtf,.txt,application/pdf" aria-labelledby="c-obra-label">
-          <span class="archivo__btn">Elegir archivo</span>
-          <span class="archivo__nombre" data-archivo-nombre>Ningún archivo seleccionado</span>
-        </label>
-        <span class="campo__ayuda">PDF, Word u OpenDocument.</span>
+      <div class="contacto__semaforo" data-semaforo-campos hidden>
+        <div class="campo">
+          <label for="c-seudonimo">Nombre o Pseudónimo</label>
+          <input id="c-seudonimo" type="text" autocomplete="nickname" disabled>
+        </div>
+        <div class="campo">
+          <label for="c-presentacion">Presentación personal breve</label>
+          <textarea id="c-presentacion" rows="4" placeholder="Quién eres, de dónde escribes y qué te mueve a enviar tu obra." disabled></textarea>
+        </div>
+        <div class="campo">
+          <label for="c-obra-intro">Breve presentación de la obra</label>
+          <textarea id="c-obra-intro" rows="5" placeholder="Género, extensión aproximada y de qué trata tu escrito." disabled></textarea>
+        </div>
+        <div class="campo campo--archivo">
+          <span class="campo__etiqueta" id="c-obra-label">Adjunta tu obra</span>
+          <label class="archivo" for="c-obra">
+            <input id="c-obra" class="archivo__input" type="file" accept=".pdf,.doc,.docx,.odt,.rtf,.txt,application/pdf" aria-labelledby="c-obra-label" disabled>
+            <span class="archivo__btn">Elegir archivo</span>
+            <span class="archivo__nombre" data-archivo-nombre>Ningún archivo seleccionado</span>
+          </label>
+          <span class="campo__ayuda">PDF, Word u OpenDocument.</span>
+        </div>
       </div>
       <div class="campo">
         <label for="c-mensaje">Mensaje</label>
