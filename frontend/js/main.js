@@ -97,7 +97,10 @@
     {
       codigo: 'SERVICIO #01',
       titulo: 'Informe de lectura',
-      desc: 'Una lectura profesional de tu manuscrito en la que evaluamos distintos aspectos. Estructura, ritmo, coherencia narrativa, potencial editorial. ¡Te devolvemos todo en un informe!',
+      desc: [
+        'Una lectura profesional de tu manuscrito en la que evaluamos distintos aspectos. Estructura, ritmo, coherencia narrativa, potencial editorial.',
+        '¡Te devolvemos todo en un informe!'
+      ],
       img: 'img/servicios/01-informe-de-lectura.png',
       mod: 'popup--lectura',
       cta: 'Cotizar este servicio'
@@ -105,28 +108,40 @@
     {
       codigo: 'SERVICIO #02',
       titulo: 'Corrección de estilo',
-      desc: 'Una revisión en la que afinamos y fortalecemos tu estilo de escritura sin perder de vista tu esencia como creativ@. Estudiamos el ritmo de tu historia y las palabras con las que decidiste contarla.',
+      desc: [
+        'Una revisión en la que afinamos y fortalecemos tu estilo de escritura sin perder de vista tu esencia como creativ@.',
+        'Estudiamos el ritmo de tu historia y las palabras con las que decidiste contarla.'
+      ],
       img: 'img/servicios/02-correccion-de-estilo.png',
       cta: 'Cotizar este servicio'
     },
     {
       codigo: 'SERVICIO #03',
       titulo: 'Corrección ortotipográfica',
-      desc: 'Una revisión en la que cazamos errores de ortografía, tildes, puntuación, mayúsculas y detalles que pudiste pasar por alto. No tocamos ni el ritmo, ni las frases.',
+      desc: [
+        'Una revisión en la que cazamos errores de ortografía, tildes, puntuación, mayúsculas y detalles que pudiste pasar por alto.',
+        'No tocamos ni el ritmo, ni las frases.'
+      ],
       img: 'img/servicios/03-correccion-ortotipografica.png',
       cta: 'Cotizar este servicio'
     },
     {
       codigo: 'SERVICIO #04',
       titulo: 'Diagramación editorial',
-      desc: '¡Diseñamos la presentación de tu manuscrito! Tipografía, interlineado, márgenes. Queremos que el espíritu de tu obra se transmita en los detalles grandes y pequeños.',
+      desc: [
+        '¡Diseñamos la presentación de tu manuscrito! Tipografía, interlineado, márgenes.',
+        'Queremos que el espíritu de tu obra se transmita en los detalles grandes y pequeños.'
+      ],
       img: 'img/servicios/04-diagramacion-editorial.png',
       cta: 'Cotizar este servicio'
     },
     {
       codigo: 'SERVICIO #05',
       titulo: 'Mentorías personalizadas',
-      desc: 'Todo/a creativ@ tiene sus dudas. Coordinamos una sesión 1:1 para resolver justo lo que necesitas. ¿Por dónde empezar? ¡Dayummm, no salgo del primer capítulo! ¿Cómo funciona el proceso editorial? ¿Cómo estructuro mi obra?',
+      desc: [
+        'Todo/a creativ@ tiene sus dudas. Coordinamos una sesión 1:1 para resolver justo lo que necesitas.',
+        '¿Por dónde empezar? ¡Dayummm, no salgo del primer capítulo! ¿Cómo funciona el proceso editorial? ¿Cómo estructuro mi obra?'
+      ],
       img: 'img/servicios/05-mentorias-personalizadas.png',
       cta: 'Cotizar este servicio'
     }
@@ -153,7 +168,11 @@
       const s = SERVICIOS[i];
       infoCodigo.textContent = s.codigo;
       infoTitulo.textContent = s.titulo;
-      infoDesc.textContent = s.desc;
+      infoDesc.replaceChildren(...s.desc.map((texto) => {
+        const p = document.createElement('p');
+        p.textContent = texto;
+        return p;
+      }));
       infoCta.textContent = s.cta;
       escenario.innerHTML = `<div class="popup${s.mod ? ` ${s.mod}` : ''}"><div class="pop-layer"><img class="popup__img" src="${s.img}" alt="${s.titulo}"></div></div>`;
       folio.textContent = `pág. ${i + 1} de ${SERVICIOS.length}`;
