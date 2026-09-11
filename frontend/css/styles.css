@@ -143,8 +143,10 @@ a.btn:active { text-decoration: none; }
 }
 
 .brand {
-  display: flex; align-items: center;
-  text-decoration: none; color: var(--tinta);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--tinta);
   flex: none;
 }
 .brand__logo {
@@ -587,6 +589,9 @@ a.btn:active { text-decoration: none; }
   hyphens: none;
   -webkit-hyphens: none;
 }
+.ruta__intro p:last-child {
+  text-align: left;
+}
 
 .ruta__linea {
   max-width: var(--ancho-max);
@@ -754,7 +759,7 @@ a.btn:active { text-decoration: none; }
    SOBRE NOSOTROS
 ============================================================ */
 
-.nosotros { padding: 5.5rem 0 0; }
+.nosotros { padding: 5.5rem 0 4.5rem; }
 
 .nosotros__titulo {
   display: flex;
@@ -814,13 +819,19 @@ a.btn:active { text-decoration: none; }
 }
 
 .nosotros__ciudad {
-  margin: 2.2rem 0 0;
-  padding: 0;
+  max-width: var(--ancho-max);
+  margin: 2rem auto 0;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: center;
 }
 .nosotros__ciudad img {
-  width: 100%;
-  height: auto;
   display: block;
+  width: auto;
+  height: 11.5rem;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center bottom;
 }
 
 /* ============================================================
