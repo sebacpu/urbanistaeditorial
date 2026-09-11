@@ -759,7 +759,7 @@ a.btn:active { text-decoration: none; }
    SOBRE NOSOTROS
 ============================================================ */
 
-.nosotros { padding: 5.5rem 0 4.5rem; }
+.nosotros { padding: 5.5rem 0 0; }
 
 .nosotros__titulo {
   display: flex;
@@ -792,7 +792,7 @@ a.btn:active { text-decoration: none; }
 
 .nosotros__ejes {
   max-width: var(--ancho-max);
-  margin: 0 auto 2.4rem;
+  margin: 0 auto 1.8rem;
   padding: 0 1.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -820,18 +820,13 @@ a.btn:active { text-decoration: none; }
 
 .nosotros__ciudad {
   max-width: var(--ancho-max);
-  margin: 2rem auto 0;
+  margin: 0 auto;
   padding: 0 1.5rem;
-  display: flex;
-  justify-content: center;
 }
 .nosotros__ciudad img {
   display: block;
-  width: auto;
-  height: 11.5rem;
-  max-width: 100%;
-  object-fit: contain;
-  object-position: center bottom;
+  width: 100%;
+  height: auto;
 }
 
 /* ============================================================
