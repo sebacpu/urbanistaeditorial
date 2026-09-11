@@ -820,13 +820,16 @@ a.btn:active { text-decoration: none; }
 
 .nosotros__ciudad {
   max-width: var(--ancho-max);
-  margin: 0 auto;
+  margin: 0 auto -2px;
   padding: 0 1.5rem;
+  line-height: 0;
 }
 .nosotros__ciudad img {
   display: block;
   width: 100%;
   height: auto;
+  margin: 0;
+  vertical-align: bottom;
 }
 
 /* ============================================================
