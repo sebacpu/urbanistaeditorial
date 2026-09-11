@@ -606,7 +606,7 @@ a.btn:active { text-decoration: none; }
 .ruta__linea::before {
   content: "";
   position: absolute;
-  top: 6.15rem; left: 2.4rem; right: 2.4rem;
+  top: 12.1rem; left: 2.4rem; right: 2.4rem;
   border-top: 3px dashed var(--tinta);
   opacity: .35;
 }
@@ -618,30 +618,32 @@ a.btn:active { text-decoration: none; }
   justify-items: start;
 }
 .ruta__senal {
-  width: 72px;
-  height: 94px;
+  width: 158px;
+  height: 196px;
   position: relative;
   z-index: 1;
 }
-.ruta__senal svg { width: 100%; height: 100%; display: block; }
-.ruta__parada:nth-child(1) .ruta__senal { transform: rotate(-3deg); }
-.ruta__parada:nth-child(2) .ruta__senal { transform: rotate(2.4deg); }
-.ruta__parada:nth-child(3) .ruta__senal { transform: rotate(-2deg); }
-.ruta__parada:nth-child(4) .ruta__senal { transform: rotate(3deg); }
+.ruta__senal img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
 
 .ruta__km {
   font-family: var(--f-mono); font-weight: 600;
   font-size: .82rem; letter-spacing: .16em;
-  background: var(--azul); color: var(--blanco);
+  background: var(--rojo-correccion); color: var(--blanco);
   display: inline-block; justify-self: start;
   padding: .5rem .85rem;
   border: var(--borde-grueso);
   box-shadow: 4px 4px 0 var(--tinta);
   position: relative; z-index: 1;
 }
-.ruta__parada:nth-child(2) .ruta__km { background: var(--amarillo); color: var(--tinta); }
-.ruta__parada:nth-child(3) .ruta__km { background: var(--blanco); color: var(--tinta); }
-.ruta__parada:nth-child(4) .ruta__km { background: var(--azul); color: var(--blanco); }
+.ruta__parada:nth-child(2) .ruta__km { background: var(--azul); color: var(--blanco); }
+.ruta__parada:nth-child(3) .ruta__km { background: var(--amarillo); color: var(--tinta); }
+.ruta__parada:nth-child(4) .ruta__km { background: #1F8A3C; color: var(--blanco); }
 .ruta__parada p:not(.ruta__km) { max-width: 32ch; font-size: .98rem; }
 
 .ruta__aviso {
@@ -1095,6 +1097,7 @@ a.btn:active { text-decoration: none; }
 @media (max-width: 1100px) {
   .ruta__linea { grid-template-columns: 1fr 1fr; }
   .ruta__linea::before { display: none; }
+  .ruta__senal { width: 140px; height: 176px; }
 }
 
 @media (max-width: 960px) {
