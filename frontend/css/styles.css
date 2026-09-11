@@ -414,7 +414,7 @@ a.btn:active { text-decoration: none; }
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 1.1rem;
+  gap: .75rem;
   align-items: flex-start;
   color: var(--tinta);
 }
@@ -443,6 +443,7 @@ a.btn:active { text-decoration: none; }
 .pagina-info__desc {
   max-width: none;
   width: 100%;
+  margin-top: 1.35rem;
   font-size: 1.08rem;
   line-height: 1.55;
   background: color-mix(in srgb, var(--blanco) 78%, var(--papel));
@@ -530,6 +531,9 @@ a.btn:active { text-decoration: none; }
   width: 100%;
   height: auto;
 }
+.popup--lectura .popup__img {
+  transform: translateX(11%);
+}
 
 /* la pieza se levanta desde el pliegue al pasar de página */
 .pop-layer {
@@ -602,11 +606,12 @@ a.btn:active { text-decoration: none; }
   gap: 2rem;
   position: relative;
 }
-/* calzada que conecta los postes de las señaléticas */
+/* calzada alineada al pie de los postes */
 .ruta__linea::before {
   content: "";
   position: absolute;
-  top: 12.1rem; left: 2.4rem; right: 2.4rem;
+  top: calc(1rem + 196px - 3px);
+  left: 2.4rem; right: 2.4rem;
   border-top: 3px dashed var(--tinta);
   opacity: .35;
 }
@@ -622,10 +627,13 @@ a.btn:active { text-decoration: none; }
   height: 196px;
   position: relative;
   z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 .ruta__senal img {
   display: block;
-  width: 100%;
+  width: auto;
   height: 100%;
   object-fit: contain;
   object-position: bottom center;

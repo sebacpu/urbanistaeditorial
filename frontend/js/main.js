@@ -99,6 +99,7 @@
       titulo: 'Informe de lectura',
       desc: 'Una lectura profesional de tu manuscrito en la que evaluamos distintos aspectos. Estructura, ritmo, coherencia narrativa, potencial editorial. ¡Te devolvemos todo en un informe!',
       img: 'img/servicios/01-informe-de-lectura.png',
+      mod: 'popup--lectura',
       cta: 'Cotizar este servicio'
     },
     {
@@ -154,7 +155,7 @@
       infoTitulo.textContent = s.titulo;
       infoDesc.textContent = s.desc;
       infoCta.textContent = s.cta;
-      escenario.innerHTML = `<div class="popup"><div class="pop-layer"><img class="popup__img" src="${s.img}" alt="${s.titulo}"></div></div>`;
+      escenario.innerHTML = `<div class="popup${s.mod ? ` ${s.mod}` : ''}"><div class="pop-layer"><img class="popup__img" src="${s.img}" alt="${s.titulo}"></div></div>`;
       folio.textContent = `pág. ${i + 1} de ${SERVICIOS.length}`;
       btnPrev.disabled = i === 0;
       btnNext.disabled = i === SERVICIOS.length - 1;
