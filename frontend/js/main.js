@@ -140,7 +140,7 @@
       titulo: 'Mentorías personalizadas',
       desc: [
         'Todo/a creativ@ tiene sus dudas. Coordinamos una sesión 1:1 para resolver justo lo que necesitas.',
-        '¿Por dónde empezar? ¡Dayummm, no salgo del primer capítulo! ¿Cómo funciona el proceso editorial? ¿Cómo estructuro mi obra?'
+        '¿Por dónde empezar? ¡Dayummm, no salgo del primer capítulo! ¿Cómo funciona el proceso editorial? ¿Cómo estructuro mi\u00A0obra?'
       ],
       img: 'img/servicios/05-mentorias-personalizadas.png',
       cta: 'Cotizar este servicio'
