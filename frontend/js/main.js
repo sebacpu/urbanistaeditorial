@@ -93,143 +93,40 @@
      LIBRO POP-UP DE SERVICIOS
   ========================================================== */
 
-  // Ilustraciones papercraft por capas. Cada capa es un <div class="pop-layer">
-  // con su propio SVG apilado, porque los transforms 3D no funcionan sobre
-  // grupos internos de un SVG — solo sobre elementos HTML.
-  const POP = {
-    lec: [
-      `<rect x="60" y="240" width="240" height="26" fill="#0B0C0E" rx="4"/>`,
-      `<g transform="rotate(-24 180 240)"><rect x="140" y="120" width="80" height="120" fill="#F2EEE3" stroke="#0B0C0E" stroke-width="5" rx="4"/><line x1="155" y1="150" x2="205" y2="150" stroke="#0B0C0E" stroke-width="4"/><line x1="155" y1="170" x2="205" y2="170" stroke="#0B0C0E" stroke-width="4"/></g>
-       <g transform="rotate(24 180 240)"><rect x="140" y="120" width="80" height="120" fill="#F2EEE3" stroke="#0B0C0E" stroke-width="5" rx="4"/><line x1="155" y1="150" x2="205" y2="150" stroke="#0B0C0E" stroke-width="4"/><line x1="155" y1="170" x2="205" y2="170" stroke="#0B0C0E" stroke-width="4"/></g>`,
-      `<g transform="rotate(-12 180 240)"><rect x="140" y="105" width="80" height="135" fill="#006DFE" stroke="#0B0C0E" stroke-width="5" rx="4"/></g>
-       <g transform="rotate(12 180 240)"><rect x="140" y="105" width="80" height="135" fill="#FFCC00" stroke="#0B0C0E" stroke-width="5" rx="4"/></g>`,
-      `<rect x="140" y="90" width="80" height="150" fill="#fff" stroke="#0B0C0E" stroke-width="5" rx="4"/>
-       <line x1="155" y1="120" x2="205" y2="120" stroke="#0B0C0E" stroke-width="4"/>
-       <line x1="155" y1="140" x2="205" y2="140" stroke="#0B0C0E" stroke-width="4"/>
-       <line x1="155" y1="160" x2="190" y2="160" stroke="#0B0C0E" stroke-width="4"/>
-       <circle cx="180" cy="205" r="16" fill="none" stroke="#E0342B" stroke-width="5"/>`,
-      `<rect x="120" y="46" width="120" height="34" fill="#0B0C0E" rx="4"/>
-       <text x="180" y="70" text-anchor="middle" fill="#FFCC00" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="15" letter-spacing="4">LEÍDO ✓</text>`
-    ],
-
-    est: [
-      `<rect x="50" y="150" width="260" height="110" fill="#fff" stroke="#0B0C0E" stroke-width="5" rx="4" transform="rotate(-2 180 205)"/>
-       <g stroke="#0B0C0E" stroke-width="4" opacity=".65" stroke-linecap="round">
-         <line x1="75" y1="180" x2="290" y2="176"/>
-         <line x1="75" y1="202" x2="260" y2="198"/>
-         <line x1="75" y1="224" x2="285" y2="220"/>
-       </g>`,
-      `<path d="M75 192 C 130 178, 200 208, 290 188" fill="none" stroke="#E0342B" stroke-width="6" stroke-linecap="round"/>
-       <path d="M180 214 C 195 204, 213 204, 226 213" fill="none" stroke="#E0342B" stroke-width="5" stroke-linecap="round"/>`,
-      `<g transform="rotate(-38 265 130)">
-         <rect x="240" y="40" width="26" height="150" fill="#E0342B" stroke="#0B0C0E" stroke-width="5" rx="3"/>
-         <polygon points="240,190 266,190 253,215" fill="#F2EEE3" stroke="#0B0C0E" stroke-width="5"/>
-         <rect x="240" y="40" width="26" height="22" fill="#0B0C0E"/>
-       </g>`,
-      `<rect x="60" y="52" width="170" height="34" fill="#FFCC00" stroke="#0B0C0E" stroke-width="4" rx="4" transform="rotate(-3 145 69)"/>
-       <text x="145" y="76" text-anchor="middle" fill="#0B0C0E" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="14" letter-spacing="2" transform="rotate(-3 145 69)">MÁS RITMO AQUÍ</text>`
-    ],
-
-    ort: [
-      `<rect x="55" y="120" width="250" height="140" fill="#fff" stroke="#0B0C0E" stroke-width="5" rx="4"/>
-       <g fill="#0B0C0E" font-family="'IBM Plex Mono',monospace" font-size="17">
-         <text x="75" y="155">la ciudad qeu</text>
-         <text x="75" y="185">nos escribe ,</text>
-         <text x="75" y="215">tambien lee.</text>
-       </g>
-       <g stroke="#E0342B" stroke-width="4" fill="none" stroke-linecap="round">
-         <path d="M162 160 l 32 0" transform="rotate(-6 178 160)"/>
-         <circle cx="196" cy="180" r="12"/>
-         <path d="M74 220 l 74 0"/>
-       </g>`,
-      `<g transform="rotate(14 230 170)">
-         <circle cx="215" cy="150" r="52" fill="rgba(0,109,254,.14)" stroke="#0B0C0E" stroke-width="7"/>
-         <circle cx="215" cy="150" r="52" fill="none" stroke="#006DFE" stroke-width="3"/>
-         <rect x="252" y="192" width="16" height="66" fill="#FFCC00" stroke="#0B0C0E" stroke-width="5" rx="6" transform="rotate(-45 260 200)"/>
-       </g>`,
-      `<rect x="95" y="46" width="170" height="34" fill="#0B0C0E" rx="4"/>
-       <text x="180" y="70" text-anchor="middle" fill="#F2EEE3" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="14" letter-spacing="3">CERO ERRATAS</text>`
-    ],
-
-    dia: [
-      `<rect x="60" y="245" width="240" height="18" fill="#0B0C0E" rx="4"/>`,
-      `<g stroke="#0B0C0E" stroke-width="5" stroke-linejoin="round">
-         <polygon points="70,245 110,110 150,245" fill="#F2EEE3"/>
-         <polygon points="110,110 150,245 190,110" fill="#fff"/>
-         <polygon points="150,245 190,110 230,245" fill="#F2EEE3"/>
-         <polygon points="190,110 230,245 270,110" fill="#fff"/>
-         <polygon points="230,245 270,110 290,245" fill="#FFCC00"/>
-       </g>
-       <g stroke="#0B0C0E" stroke-width="3" opacity=".5">
-         <line x1="100" y1="160" x2="120" y2="160"/><line x1="97" y1="180" x2="125" y2="180"/>
-         <line x1="175" y1="160" x2="205" y2="160"/><line x1="172" y1="180" x2="208" y2="180"/>
-       </g>`,
-      `<g transform="rotate(3 285 90)">
-         <rect x="245" y="55" width="84" height="52" fill="#006DFE" stroke="#0B0C0E" stroke-width="5" rx="4"/>
-         <line x1="258" y1="72" x2="316" y2="72" stroke="#fff" stroke-width="4"/>
-         <line x1="258" y1="86" x2="300" y2="86" stroke="#FFCC00" stroke-width="4"/>
-       </g>`,
-      `<rect x="60" y="46" width="160" height="34" fill="#FFCC00" stroke="#0B0C0E" stroke-width="4" rx="4"/>
-       <text x="140" y="70" text-anchor="middle" fill="#0B0C0E" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="14" letter-spacing="2">RETÍCULA VIVA</text>`
-    ],
-
-    men: [
-      `<rect x="70" y="230" width="220" height="30" fill="#FFCC00" stroke="#0B0C0E" stroke-width="5" rx="6"/>
-       <rect x="85" y="258" width="14" height="20" fill="#0B0C0E"/>
-       <rect x="261" y="258" width="14" height="20" fill="#0B0C0E"/>`,
-      `<g stroke="#0B0C0E" stroke-width="5" stroke-linejoin="round">
-         <circle cx="128" cy="140" r="26" fill="#fff"/>
-         <path d="M100 235 C 100 185, 156 185, 156 235 Z" fill="#006DFE"/>
-       </g>
-       <g stroke="#0B0C0E" stroke-width="5" stroke-linejoin="round">
-         <circle cx="232" cy="140" r="26" fill="#fff"/>
-         <path d="M204 235 C 204 185, 260 185, 260 235 Z" fill="#0B0C0E"/>
-       </g>`,
-      `<g transform="rotate(-4 180 96)">
-         <rect x="150" y="78" width="60" height="40" fill="#fff" stroke="#0B0C0E" stroke-width="5" rx="6"/>
-         <polygon points="170,118 186,118 174,132" fill="#fff" stroke="#0B0C0E" stroke-width="5"/>
-         <line x1="162" y1="92" x2="198" y2="92" stroke="#0B0C0E" stroke-width="4"/>
-         <line x1="162" y1="104" x2="188" y2="104" stroke="#0B0C0E" stroke-width="4"/>
-       </g>`,
-      `<rect x="105" y="30" width="150" height="34" fill="#0B0C0E" rx="4"/>
-       <text x="180" y="54" text-anchor="middle" fill="#FFCC00" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="14" letter-spacing="2">UNO A UNO</text>`
-    ]
-  };
-
   const SERVICIOS = [
     {
       codigo: 'SERVICIO #01',
       titulo: 'Informe de lectura',
       desc: 'Una lectura profesional de tu manuscrito en la que evaluamos distintos aspectos. Estructura, ritmo, coherencia narrativa, potencial editorial. ¡Te devolvemos todo en un informe!',
-      pop: 'lec',
+      img: 'img/servicios/01-informe-de-lectura.png',
       cta: 'Cotizar este servicio'
     },
     {
       codigo: 'SERVICIO #02',
       titulo: 'Corrección de estilo',
       desc: 'Una revisión en la que afinamos y fortalecemos tu estilo de escritura sin perder de vista tu esencia como creativ@. Estudiamos el ritmo de tu historia y las palabras con las que decidiste contarla.',
-      pop: 'est',
+      img: 'img/servicios/02-correccion-de-estilo.png',
       cta: 'Cotizar este servicio'
     },
     {
       codigo: 'SERVICIO #03',
       titulo: 'Corrección ortotipográfica',
       desc: 'Una revisión en la que cazamos errores de ortografía, tildes, puntuación, mayúsculas y detalles que pudiste pasar por alto. No tocamos ni el ritmo, ni las frases.',
-      pop: 'ort',
+      img: 'img/servicios/03-correccion-ortotipografica.png',
       cta: 'Cotizar este servicio'
     },
     {
       codigo: 'SERVICIO #04',
       titulo: 'Diagramación editorial',
       desc: '¡Diseñamos la presentación de tu manuscrito! Tipografía, interlineado, márgenes. Queremos que el espíritu de tu obra se transmita en los detalles grandes y pequeños.',
-      pop: 'dia',
+      img: 'img/servicios/04-diagramacion-editorial.png',
       cta: 'Cotizar este servicio'
     },
     {
       codigo: 'SERVICIO #05',
       titulo: 'Mentorías personalizadas',
       desc: 'Todo/a creativ@ tiene sus dudas. Coordinamos una sesión 1:1 para resolver justo lo que necesitas. ¿Por dónde empezar? ¡Dayummm, no salgo del primer capítulo! ¿Cómo funciona el proceso editorial? ¿Cómo estructuro mi obra?',
-      pop: 'men',
+      img: 'img/servicios/05-mentorias-personalizadas.png',
       cta: 'Cotizar este servicio'
     }
   ];
@@ -257,16 +154,13 @@
       infoTitulo.textContent = s.titulo;
       infoDesc.textContent = s.desc;
       infoCta.textContent = s.cta;
-      const capas = POP[s.pop]
-        .map((c) => `<div class="pop-layer"><svg viewBox="0 0 360 300" aria-hidden="true">${c}</svg></div>`)
-        .join('');
-      escenario.innerHTML = `<div class="popup">${capas}</div>`;
+      escenario.innerHTML = `<div class="popup"><div class="pop-layer"><img class="popup__img" src="${s.img}" alt="${s.titulo}"></div></div>`;
       folio.textContent = `pág. ${i + 1} de ${SERVICIOS.length}`;
       btnPrev.disabled = i === 0;
       btnNext.disabled = i === SERVICIOS.length - 1;
 
-      // armar el pop-up en cascada: forzar reflow para fijar el estado
-      // inicial de las capas antes de disparar la transición
+      // armar el pop-up: forzar reflow para fijar el estado
+      // inicial antes de disparar la transición
       const popup = escenario.querySelector('.popup');
       void popup.offsetWidth;
       if (armar) popup.classList.add('is-armado');

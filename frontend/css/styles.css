@@ -461,53 +461,42 @@ strong { font-weight: 700; }
 .libro__hoja--adelante { animation: hoja-adelante .7s cubic-bezier(.45,.05,.35,1) forwards; }
 .libro__hoja--atras    { animation: hoja-atras   .7s cubic-bezier(.45,.05,.35,1) forwards; }
 
-/* ---------- escenario pop-up ---------- */
+/* ---------- ilustración pop-up ---------- */
 
 .popup-escenario {
   height: 100%;
   min-height: 454px;
   display: grid;
-  place-items: end center;
+  place-items: center;
   perspective: 900px;
   transform-style: preserve-3d;
-  padding: 1.6rem;
+  padding: .8rem 1rem 1.2rem;
 }
 
 .popup {
-  width: min(88%, 360px);
-  aspect-ratio: 360 / 300;
+  width: min(92%, 400px);
   position: relative;
   transform-style: preserve-3d;
 }
 
-.popup svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.popup__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-/* capas que se levantan desde el pliegue */
+/* la pieza se levanta desde el pliegue al pasar de página */
 .pop-layer {
-  position: absolute;
-  inset: 0;
   transform-origin: 50% 100%;
-  transform: rotateX(-88deg);
+  transform: rotateX(-88deg) translateY(18px);
   opacity: 0;
 }
 .popup.is-armado .pop-layer {
-  transform: rotateX(0deg);
+  transform: rotateX(0deg) translateY(0);
   opacity: 1;
   transition:
-    transform .65s cubic-bezier(.2, 1.35, .4, 1),
-    opacity .3s ease;
-}
-.popup.is-armado .pop-layer:nth-child(1) { transition-delay: .05s; }
-.popup.is-armado .pop-layer:nth-child(2) { transition-delay: .2s; }
-.popup.is-armado .pop-layer:nth-child(3) { transition-delay: .35s; }
-.popup.is-armado .pop-layer:nth-child(4) { transition-delay: .5s; }
-.popup.is-armado .pop-layer:nth-child(5) { transition-delay: .65s; }
-
-/* pliegue central marcado en el escenario */
-.libro__pagina--der::after {
-  content: "";
-  position: absolute; left: 8%; right: 8%; bottom: 3.2rem;
-  border-top: 2px dashed rgba(11, 12, 14, .25);
+    transform .7s cubic-bezier(.2, 1.35, .4, 1),
+    opacity .35s ease;
 }
 
 /* controles del libro */
