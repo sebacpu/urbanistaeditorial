@@ -360,7 +360,6 @@ a.btn:active { text-decoration: none; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 540px;
-  transform: rotateX(7deg);
 }
 
 /* atril / sombra bajo el libro */
@@ -423,7 +422,6 @@ a.btn:active { text-decoration: none; }
   font-size: .72rem; letter-spacing: .14em;
   background: var(--tinta); color: var(--amarillo);
   padding: .4rem .85rem;
-  transform: rotate(-2.2deg);
   box-shadow: 3px 3px 0 var(--amarillo);
 }
 .pagina-info__titulo {
@@ -435,7 +433,6 @@ a.btn:active { text-decoration: none; }
   background: var(--blanco);
   border: 2.5px solid var(--tinta);
   padding: .6rem .75rem .45rem;
-  transform: rotate(-.9deg);
   box-shadow: 5px 5px 0 var(--tinta);
   width: 100%;
   max-width: none;
@@ -446,10 +443,11 @@ a.btn:active { text-decoration: none; }
   margin-top: 1.35rem;
   font-size: 1.08rem;
   line-height: 1.55;
-  background: color-mix(in srgb, var(--blanco) 78%, var(--papel));
+  background: var(--blanco);
   border: 2px dashed rgba(11, 12, 14, .35);
   padding: .95rem 1rem .9rem;
-  transform: rotate(.45deg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
 }
 .pagina-info .btn {
   margin-top: auto;
@@ -1208,12 +1206,6 @@ a.btn:active { text-decoration: none; }
     transform: none;
     transition: opacity .3s ease;
     transition-delay: 0s;
-  }
-
-  .pagina-info__titulo,
-  .pagina-info__codigo,
-  .pagina-info__desc {
-    transform: none;
   }
 
   .tienda__cinta-texto { animation: none; }
