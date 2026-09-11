@@ -140,7 +140,7 @@
       titulo: 'Mentorías personalizadas',
       desc: [
         'Todo/a creativ@ tiene sus dudas. Coordinamos una sesión 1:1 para resolver justo lo que necesitas.',
-        '¿Por dónde empezar? ¡Dayummm, no salgo del primer capítulo! ¿Cómo funciona el proceso editorial? ¿Cómo estructuro mi\u00A0obra?'
+        '¿Por dónde empezar?\n¡Dayummm, no salgo del primer capítulo!\n¿Cómo funciona el proceso editorial?\n¿Cómo estructuro mi obra?'
       ],
       img: 'img/servicios/05-mentorias-personalizadas.png',
       cta: 'Cotizar este servicio'
@@ -168,9 +168,13 @@
       const s = SERVICIOS[i];
       infoCodigo.textContent = s.codigo;
       infoTitulo.textContent = s.titulo;
+      infoDesc.classList.toggle('pagina-info__desc--lineas', s.desc.some((t) => String(t).includes('\n')));
       infoDesc.replaceChildren(...s.desc.map((texto) => {
         const p = document.createElement('p');
-        p.textContent = texto;
+        String(texto).split('\n').forEach((linea, i) => {
+          if (i) p.appendChild(document.createElement('br'));
+          p.appendChild(document.createTextNode(linea));
+        });
         return p;
       }));
       infoCta.textContent = s.cta;

@@ -143,22 +143,15 @@ a.btn:active { text-decoration: none; }
 }
 
 .brand {
-  display: flex; align-items: center; gap: .7rem;
+  display: flex; align-items: center;
   text-decoration: none; color: var(--tinta);
+  flex: none;
 }
-.brand__iso {
-  width: 52px; height: 52px; flex: none;
-  object-fit: contain;
+.brand__logo {
   display: block;
-}
-.brand__word {
-  font-family: var(--f-display);
-  font-size: 1.7rem; line-height: .85;
-  display: grid;
-}
-.brand__word small {
-  font-size: .72rem; letter-spacing: .48em;
-  font-family: var(--f-mono); font-weight: 600;
+  height: 58px;
+  width: auto;
+  object-fit: contain;
 }
 
 .nav-list {
@@ -448,7 +441,8 @@ a.btn:active { text-decoration: none; }
   line-height: 1.5;
   font-weight: 400;
 }
-.pagina-info__desc p { margin: 0; }
+.pagina-info__desc--lineas { max-width: none; }
+.pagina-info__desc p { margin: 0; text-wrap: pretty; }
 .pagina-info .btn {
   margin-top: auto;
   transform: none;
@@ -760,7 +754,20 @@ a.btn:active { text-decoration: none; }
    SOBRE NOSOTROS
 ============================================================ */
 
-.nosotros { padding: 5.5rem 0 5rem; }
+.nosotros { padding: 5.5rem 0 0; }
+
+.nosotros__titulo {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+}
+.nosotros__iso {
+  width: clamp(2.8rem, 6.2vw, 4.6rem);
+  height: auto;
+  flex: none;
+  object-fit: contain;
+  display: block;
+}
 
 .nosotros__intro {
   max-width: 58rem;
@@ -807,15 +814,13 @@ a.btn:active { text-decoration: none; }
 }
 
 .nosotros__ciudad {
-  max-width: var(--ancho-max);
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  margin: 2.2rem 0 0;
+  padding: 0;
 }
-.nosotros__ciudad svg {
+.nosotros__ciudad img {
   width: 100%;
   height: auto;
   display: block;
-  overflow: visible;
 }
 
 /* ============================================================
@@ -1147,6 +1152,7 @@ a.btn:active { text-decoration: none; }
 }
 
 @media (max-width: 780px) {
+  .brand__logo { height: 48px; }
   .site-header { flex-wrap: wrap; }
   .nav-toggle {
     display: grid; gap: 5px;
@@ -1161,6 +1167,7 @@ a.btn:active { text-decoration: none; }
   .nav-list {
     display: none;
     width: 100%;
+    flex-basis: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: .4rem;
@@ -1168,7 +1175,7 @@ a.btn:active { text-decoration: none; }
     border-top: 2px dashed var(--tinta);
     margin-top: .6rem;
   }
-  .site-nav { width: 100%; display: flex; flex-wrap: wrap; }
+  .site-nav { display: contents; }
   .nav-list.is-abierta { display: flex; }
   .nav-list a:not(.btn) { font-size: 1rem; padding: .5rem 0; }
   .nav-cta-item { margin-top: .6rem; }
