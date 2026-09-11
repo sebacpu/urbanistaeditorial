@@ -759,7 +759,7 @@ a.btn:active { text-decoration: none; }
    SOBRE NOSOTROS
 ============================================================ */
 
-.nosotros { padding: 5.5rem 0 0; }
+.nosotros { padding: 5.5rem 0 4rem; }
 
 .nosotros__titulo {
   display: flex;
@@ -820,7 +820,7 @@ a.btn:active { text-decoration: none; }
 
 .nosotros__ciudad {
   max-width: var(--ancho-max);
-  margin: 0 auto -2px;
+  margin: 2.4rem auto 0;
   padding: 0 1.5rem;
   line-height: 0;
 }
@@ -829,7 +829,6 @@ a.btn:active { text-decoration: none; }
   width: 100%;
   height: auto;
   margin: 0;
-  vertical-align: bottom;
 }
 
 /* ============================================================
