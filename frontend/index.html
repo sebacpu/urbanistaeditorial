@@ -337,19 +337,22 @@
   </header>
 
   <div class="contacto__grilla">
-    <!-- DEMO VISUAL: conectar a Formspree o correo real antes de lanzar -->
-    <form class="contacto__form" data-demo-form>
+    <form class="contacto__form" action="/api/contacto" method="post" enctype="multipart/form-data">
+      <p class="sr-only" aria-hidden="true">
+        <label for="c-empresa">Empresa</label>
+        <input id="c-empresa" type="text" name="empresa" tabindex="-1" autocomplete="off">
+      </p>
       <div class="campo">
         <label for="c-nombre">Nombre</label>
-        <input id="c-nombre" type="text" autocomplete="name" required>
+        <input id="c-nombre" name="nombre" type="text" autocomplete="name" required>
       </div>
       <div class="campo">
         <label for="c-correo">Correo</label>
-        <input id="c-correo" type="email" autocomplete="email" required>
+        <input id="c-correo" name="correo" type="email" autocomplete="email" required>
       </div>
       <div class="campo">
         <label for="c-motivo">Motivo</label>
-        <select id="c-motivo" required>
+        <select id="c-motivo" name="motivo" required>
           <option value="">Elige un motivo</option>
           <option value="manuscrito">Quiero publicar mi manuscrito</option>
           <option value="servicio">Cotizar un servicio independiente</option>
@@ -360,20 +363,20 @@
       <div class="contacto__semaforo" data-semaforo-campos hidden>
         <div class="campo">
           <label for="c-seudonimo">Nombre o Pseudónimo</label>
-          <input id="c-seudonimo" type="text" autocomplete="nickname" disabled>
+          <input id="c-seudonimo" name="seudonimo" type="text" autocomplete="nickname" disabled>
         </div>
         <div class="campo">
           <label for="c-presentacion">Presentación personal breve</label>
-          <textarea id="c-presentacion" rows="4" placeholder="Quién eres, de dónde escribes y qué te mueve a enviar tu obra." disabled></textarea>
+          <textarea id="c-presentacion" name="presentacion" rows="4" placeholder="Quién eres, de dónde escribes y qué te mueve a enviar tu obra." disabled></textarea>
         </div>
         <div class="campo">
           <label for="c-obra-intro">Breve presentación de la obra</label>
-          <textarea id="c-obra-intro" rows="5" placeholder="Género, extensión aproximada y de qué trata tu escrito." disabled></textarea>
+          <textarea id="c-obra-intro" name="obra_intro" rows="5" placeholder="Género, extensión aproximada y de qué trata tu escrito." disabled></textarea>
         </div>
         <div class="campo campo--archivo">
           <span class="campo__etiqueta" id="c-obra-label">Adjunta tu obra</span>
           <label class="archivo" for="c-obra">
-            <input id="c-obra" class="archivo__input" type="file" accept=".pdf,.doc,.docx,.odt,.rtf,.txt,application/pdf" aria-labelledby="c-obra-label" disabled>
+            <input id="c-obra" class="archivo__input" name="obra" type="file" accept=".pdf,.doc,.docx,.odt,.rtf,.txt,application/pdf" aria-labelledby="c-obra-label" disabled>
             <span class="archivo__btn">Elegir archivo</span>
             <span class="archivo__nombre" data-archivo-nombre>Ningún archivo seleccionado</span>
           </label>
@@ -382,7 +385,7 @@
       </div>
       <div class="campo">
         <label for="c-mensaje">Mensaje</label>
-        <textarea id="c-mensaje" rows="6" required placeholder="Cuéntanos de tu proyecto o consulta."></textarea>
+        <textarea id="c-mensaje" name="mensaje" rows="6" required placeholder="Cuéntanos de tu proyecto o consulta."></textarea>
       </div>
       <button class="btn btn--primario" type="submit">Enviar correo</button>
       <p class="nota-demo" data-demo-msg aria-live="polite"></p>

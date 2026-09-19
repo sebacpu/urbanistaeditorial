@@ -334,9 +334,38 @@
   }
 
   /* ==========================================================
-     FORMULARIOS DEMO (sin backend todavía)
-     TODO: conectar a Formspree / Mailchimp / correo real.
+     CONTACTO → SMTP (socialmedia@ → contacto@)
+     La lista de la tienda sigue en demo.
   ========================================================== */
+  const contactoForm = document.querySelector('.contacto__form');
+  if (contactoForm) {
+    contactoForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = contactoForm.querySelector('[data-demo-msg]');
+      const btn = contactoForm.querySelector('[type="submit"]');
+      if (msg) msg.textContent = 'Enviando…';
+      if (btn) btn.disabled = true;
+      try {
+        const res = await fetch('/api/contacto', {
+          method: 'POST',
+          body: new FormData(contactoForm)
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.ok) {
+          throw new Error(data.error || 'No se pudo enviar. Inténtalo de nuevo.');
+        }
+        if (msg) msg.textContent = 'Listo. Recibimos tu mensaje en contacto@urbanistaeditorial.com.';
+        contactoForm.reset();
+        if (archivoNombre) archivoNombre.textContent = 'Ningún archivo seleccionado';
+        syncSemaforo();
+      } catch (err) {
+        if (msg) msg.textContent = err.message || 'No se pudo enviar. Inténtalo de nuevo.';
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    });
+  }
+
   document.querySelectorAll('[data-demo-form]').forEach((form) => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
