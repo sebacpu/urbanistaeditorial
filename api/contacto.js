@@ -12,6 +12,36 @@ const MOTIVOS = {
 
 const EXT_OK = new Set(['pdf', 'doc', 'docx', 'odt', 'rtf', 'txt']);
 const MAX_FILE = 4 * 1024 * 1024;
+const RATE_WINDOW_MS = 15 * 60 * 1000;
+const RATE_MAX = 5;
+const rateHits = new Map();
+
+function clientIp(req) {
+  const forwarded = req.headers['x-forwarded-for'];
+  if (typeof forwarded === 'string' && forwarded.trim()) {
+    return forwarded.split(',')[0].trim();
+  }
+  return req.socket?.remoteAddress || 'unknown';
+}
+
+function rateLimited(ip) {
+  const now = Date.now();
+  const recent = (rateHits.get(ip) || []).filter((t) => now - t < RATE_WINDOW_MS);
+  if (recent.length >= RATE_MAX) {
+    rateHits.set(ip, recent);
+    return true;
+  }
+  recent.push(now);
+  rateHits.set(ip, recent);
+  return false;
+}
+
+function oneLine(value) {
+  return String(value || '')
+    .replace(/[\r\n\0]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
 
 function json(res, status, body) {
   res.statusCode = status;
@@ -78,6 +108,11 @@ module.exports = async (req, res) => {
     return;
   }
 
+  if (rateLimited(clientIp(req))) {
+    json(res, 429, { ok: false, error: 'Espera unos minutos antes de enviar otro mensaje.' });
+    return;
+  }
+
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
   const host = process.env.SMTP_HOST || 'smtp.gmail.com';
@@ -103,8 +138,8 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const nombre = (fields.nombre || '').trim();
-  const correo = (fields.correo || '').trim();
+  const nombre = oneLine(fields.nombre).replace(/"/g, '');
+  const correo = oneLine(fields.correo);
   const motivo = fields.motivo || '';
   const mensaje = (fields.mensaje || '').trim();
   const seudonimo = (fields.seudonimo || '').trim();
@@ -185,7 +220,7 @@ module.exports = async (req, res) => {
     await transporter.sendMail({
       from: `"Urbanista Editorial" <${user}>`,
       to,
-      replyTo: `"${nombre.replace(/"/g, '')}" <${correo}>`,
+      replyTo: `"${nombre}" <${correo}>`,
       subject: `[Urbanista] ${motivoLabel} — ${nombre}`,
       text: lineas.join('\n'),
       html,
