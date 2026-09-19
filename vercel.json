@@ -7,7 +7,7 @@
     }
   },
   "rewrites": [
-    { "source": "/", "destination": "/frontend/index.html" },
+    { "source": "/", "destination": "/frontend" },
     { "source": "/css/:path*", "destination": "/frontend/css/:path*" },
     { "source": "/js/:path*", "destination": "/frontend/js/:path*" },
     { "source": "/img/:path*", "destination": "/frontend/img/:path*" }
